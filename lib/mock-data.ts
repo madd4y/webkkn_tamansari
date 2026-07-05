@@ -7,11 +7,17 @@ import type {
   VideoProfil,
 } from "@/types";
 
+const tamansariMapsEmbedUrl =
+  "https://www.google.com/maps?q=-7.8045719,110.5831436&z=17&output=embed";
+
+const tamansariMapsUrl =
+  "https://www.google.com/maps/search/?api=1&query=-7.8045719,110.5831436";
+
 export const profilMock: ProfilPadukuhan = {
-  id: "profil-gedangsari",
+  id: "profil-tamansari",
   sejarah:
-    "Padukuhan Gedangsari tumbuh sebagai wilayah yang menjaga nilai gotong royong, pertanian, dan kehidupan sosial masyarakat pedesaan. Website ini menjadi ruang informasi bersama agar profil, potensi, dan kegiatan padukuhan dapat diakses lebih luas.",
-  visi: "Terwujudnya Padukuhan Gedangsari yang rukun, mandiri, tertata, dan terbuka terhadap perkembangan digital.",
+    "Padukuhan Tamansari tumbuh sebagai wilayah yang menjaga nilai gotong royong, pertanian, dan kehidupan sosial masyarakat pedesaan. Website ini menjadi ruang informasi bersama agar profil, potensi, dan kegiatan padukuhan dapat diakses lebih luas.",
+  visi: "Terwujudnya Padukuhan Tamansari yang rukun, mandiri, tertata, dan terbuka terhadap perkembangan digital.",
   misi: [
     "Meningkatkan pelayanan informasi padukuhan secara mudah dan transparan.",
     "Mendukung promosi UMKM serta potensi lokal masyarakat.",
@@ -19,15 +25,14 @@ export const profilMock: ProfilPadukuhan = {
     "Menjaga budaya gotong royong dan kepedulian antarwarga.",
   ],
   geografis:
-    "Gedangsari berada di wilayah perbukitan dengan lingkungan permukiman, lahan pertanian, dan akses jalan penghubung antarwilayah.",
+    "Tamansari berada di Kalurahan Watugajah, Kapanewon Gedangsari, Kabupaten Gunungkidul, Daerah Istimewa Yogyakarta, dengan lingkungan permukiman, lahan pertanian, dan akses jalan penghubung antarwilayah.",
   luas: "Data luas wilayah dapat diperbarui melalui dashboard admin.",
   ketinggian: "Data ketinggian dapat diperbarui melalui dashboard admin.",
   utara: "Wilayah padukuhan sekitar",
   selatan: "Wilayah padukuhan sekitar",
   timur: "Wilayah padukuhan sekitar",
   barat: "Wilayah padukuhan sekitar",
-  maps:
-    "https://www.google.com/maps?q=Gedangsari%2C%20Gunungkidul&output=embed",
+  maps: tamansariMapsEmbedUrl,
   struktur: [
     { jabatan: "Kepala Dukuh", nama: "Nama Kepala Dukuh" },
     { jabatan: "Sekretaris", nama: "Nama Sekretaris" },
@@ -48,7 +53,7 @@ export const pendudukMock: Penduduk = {
 
 export const videoMock: VideoProfil = {
   id: "video-profil",
-  judul: "Video Profil Padukuhan Gedangsari",
+  judul: "Video Profil Padukuhan Tamansari",
   youtubeUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
   deskripsi:
     "Video profil resmi dapat diperbarui dari dashboard admin setelah tautan YouTube tersedia.",
@@ -56,13 +61,12 @@ export const videoMock: VideoProfil = {
 };
 
 export const kontakMock: KontakPadukuhan = {
-  namaPadukuhan: "Padukuhan Gedangsari",
-  alamat: "Gedangsari, Gunungkidul, Daerah Istimewa Yogyakarta",
+  namaPadukuhan: "Padukuhan Tamansari",
+  alamat: "Tamansari, Watugajah, Gedangsari, Gunungkidul, Daerah Istimewa Yogyakarta",
   telepon: "0274-000000",
   whatsapp: "081234567890",
-  email: "kknuajygedangsari@gmail.com",
-  maps:
-    "https://www.google.com/maps?q=Gedangsari%2C%20Gunungkidul&output=embed",
+  email: "kkntamansari@gmail.com",
+  maps: tamansariMapsEmbedUrl,
   jamPelayanan: "Senin - Jumat, 08.00 - 15.00 WIB",
   mediaSosial: {
     instagram: "https://instagram.com",
@@ -79,21 +83,23 @@ export const umkmMock: UMKM[] = [
     deskripsi:
       "Olahan keripik singkong rumahan dengan beberapa varian rasa untuk oleh-oleh.",
     whatsapp: "081234567801",
-    maps: "https://maps.google.com",
+    maps: tamansariMapsUrl,
     foto: "https://images.unsplash.com/photo-1621939514649-280e2ee25f60?auto=format&fit=crop&w=900&q=80",
     createdAt: "2026-06-28T08:00:00.000Z",
+    jamBuka: "08.00 - 17.00 WIB",
   },
   {
     id: "umkm-2",
-    nama: "Madu Tani Gedangsari",
+    nama: "Madu Tani Tamansari",
     kategori: "Agribisnis",
     pemilik: "Bapak Warto",
     deskripsi:
       "Madu lokal hasil budidaya lebah masyarakat dengan pengemasan sederhana.",
     whatsapp: "081234567802",
-    maps: "https://maps.google.com",
+    maps: tamansariMapsUrl,
     foto: "https://images.unsplash.com/photo-1587049352846-4a222e784d38?auto=format&fit=crop&w=900&q=80",
     createdAt: "2026-06-26T08:00:00.000Z",
+    jamBuka: "08.00 - 16.00 WIB",
   },
   {
     id: "umkm-3",
@@ -103,9 +109,10 @@ export const umkmMock: UMKM[] = [
     deskripsi:
       "Produk kain dan aksesori batik tulis dengan motif yang terinspirasi alam sekitar.",
     whatsapp: "081234567803",
-    maps: "https://maps.google.com",
+    maps: tamansariMapsUrl,
     foto: "https://images.unsplash.com/photo-1590736969955-71cc94901144?auto=format&fit=crop&w=900&q=80",
     createdAt: "2026-06-22T08:00:00.000Z",
+    jamBuka: "09.00 - 17.00 WIB",
   },
   {
     id: "umkm-4",
@@ -115,9 +122,10 @@ export const umkmMock: UMKM[] = [
     deskripsi:
       "Penyedia bibit buah dan tanaman pekarangan untuk kebutuhan warga sekitar.",
     whatsapp: "081234567804",
-    maps: "https://maps.google.com",
+    maps: tamansariMapsUrl,
     foto: "https://images.unsplash.com/photo-1464226184884-fa280b87c399?auto=format&fit=crop&w=900&q=80",
     createdAt: "2026-06-18T08:00:00.000Z",
+    jamBuka: "07.00 - 16.00 WIB",
   },
 ];
 

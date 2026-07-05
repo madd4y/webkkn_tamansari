@@ -3,7 +3,7 @@ import { Navbar } from "@/components/layout/navbar";
 import { getKontak } from "@/services/kontak.service";
 
 export async function PublicLayout({ children }: { children: React.ReactNode }) {
-  const kontak = await getKontak();
+  const kontak = (await getKontak()).data;
 
   return (
     <>

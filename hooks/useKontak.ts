@@ -6,6 +6,9 @@ import { getKontak } from "@/services/kontak.service";
 export function useKontak() {
   return useQuery({
     queryKey: ["kontak"],
-    queryFn: getKontak,
+    queryFn: async () => {
+      const response = await getKontak();
+      return response.data;
+    },
   });
 }

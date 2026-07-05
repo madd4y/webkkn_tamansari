@@ -1,58 +1,73 @@
 import Link from "next/link";
-import { Mail, MapPin, Phone } from "lucide-react";
+import { Landmark, Mail, MapPin, Phone } from "lucide-react";
 import type { KontakPadukuhan } from "@/types";
 
 export function Footer({ kontak }: { kontak: KontakPadukuhan }) {
+  const menuItems = ["Beranda", "Profil", "Penduduk", "UMKM", "Dokumentasi", "Video", "Kontak"];
+
   return (
-    <footer className="border-t border-zinc-200 bg-zinc-950 text-white">
-      <div className="mx-auto grid max-w-7xl gap-10 px-4 py-12 sm:px-6 lg:grid-cols-[1.2fr_0.8fr_0.8fr] lg:px-8">
+    <footer className="bg-[#2b221d] text-white shadow-[0_-8px_30px_rgba(31,41,55,0.08)]">
+      <div className="mx-auto grid max-w-[1216px] gap-12 px-8 py-16 lg:grid-cols-[1.05fr_0.85fr_1fr]">
         <div>
-          <h2 className="text-xl font-bold">{kontak.namaPadukuhan}</h2>
-          <p className="mt-3 max-w-xl text-sm leading-6 text-zinc-300">
-            Media informasi digital untuk profil, data penduduk, UMKM,
-            dokumentasi kegiatan, dan kontak Padukuhan Gedangsari.
+          <div className="flex items-center gap-3">
+            <span className="flex size-10 items-center justify-center rounded-full bg-[#8b7355] text-white shadow-sm">
+              <Landmark size={18} aria-hidden="true" />
+            </span>
+            <div>
+              <h2 className="text-base font-bold leading-5 text-white">{kontak.namaPadukuhan}</h2>
+              <p className="text-sm font-medium leading-5 text-[#d6c3a5]">
+                Kalurahan Watugajah, Gedangsari
+              </p>
+            </div>
+          </div>
+          <p className="mt-6 max-w-[360px] text-sm font-medium leading-7 text-[#9ca3af]">
+            Website profil resmi {kontak.namaPadukuhan}. Menyajikan informasi
+            publik, data penduduk, dan potensi lokal untuk masyarakat.
           </p>
         </div>
         <div>
-          <h3 className="text-sm font-semibold uppercase tracking-[0.12em] text-green-300">
-            Navigasi
+          <h3 className="text-base font-bold text-[#d6c3a5]">
+            Menu Cepat
           </h3>
-          <div className="mt-4 grid gap-2 text-sm text-zinc-300">
-            {["Profil", "Penduduk", "UMKM", "Dokumentasi", "Video", "Kontak"].map(
-              (item) => (
-                <Link
-                  key={item}
-                  href={`/${item.toLowerCase()}`}
-                  className="hover:text-white"
-                >
-                  {item}
-                </Link>
-              ),
-            )}
+          <div className="mt-6 grid grid-cols-2 gap-x-12 gap-y-4 text-sm font-semibold text-[#9ca3af]">
+            {menuItems.map((item) => (
+              <Link
+                key={item}
+                href={item === "Beranda" ? "/" : `/${item.toLowerCase()}`}
+                className="transition hover:text-white"
+              >
+                {item}
+              </Link>
+            ))}
           </div>
         </div>
         <div>
-          <h3 className="text-sm font-semibold uppercase tracking-[0.12em] text-green-300">
+          <h3 className="text-base font-bold text-[#d6c3a5]">
             Kontak
           </h3>
-          <div className="mt-4 grid gap-3 text-sm text-zinc-300">
-            <p className="flex gap-3">
-              <MapPin className="mt-0.5 shrink-0" size={16} aria-hidden="true" />
-              {kontak.alamat}
+          <div className="mt-6 grid gap-4 text-sm font-semibold leading-7 text-[#9ca3af]">
+            <p className="flex gap-4">
+              <MapPin className="mt-1 shrink-0 text-[#8b7355]" size={16} aria-hidden="true" />
+              <span className="max-w-[360px]">{kontak.alamat}</span>
             </p>
-            <p className="flex items-center gap-3">
-              <Phone size={16} aria-hidden="true" />
+            <p className="flex items-center gap-4">
+              <Phone className="text-[#8b7355]" size={16} aria-hidden="true" />
               {kontak.telepon}
             </p>
-            <p className="flex items-center gap-3">
-              <Mail size={16} aria-hidden="true" />
+            <p className="flex items-center gap-4">
+              <Mail className="text-[#8b7355]" size={16} aria-hidden="true" />
               {kontak.email}
             </p>
           </div>
         </div>
       </div>
-      <div className="border-t border-white/10 py-5 text-center text-xs text-zinc-400">
-        © {new Date().getFullYear()} Padukuhan Gedangsari. KKN Universitas Atma Jaya Yogyakarta.
+      <div className="mx-auto max-w-[1216px] px-8 pb-12">
+        <div className="flex flex-col gap-4 border-t border-white/10 pt-8 text-sm font-semibold text-[#6b7280] sm:flex-row sm:items-center sm:justify-between">
+          <span>© {new Date().getFullYear()} {kontak.namaPadukuhan}. Dibuat oleh Kelompok 54 KKN 89 UAJY .</span>
+          <Link href="/admin/dashboard" className="transition hover:text-white">
+            Portal Admin
+          </Link>
+        </div>
       </div>
     </footer>
   );

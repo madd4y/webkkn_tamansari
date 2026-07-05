@@ -1,30 +1,30 @@
 import Image from "next/image";
-import { MapPin, MessageCircle } from "lucide-react";
+import { Eye, MessageCircle } from "lucide-react";
 import type { UMKM } from "@/types";
 import { getWhatsAppUrl } from "@/lib/utils";
 import { ButtonLink } from "@/components/ui/button";
 
 export function UmkmCard({ item }: { item: UMKM }) {
   return (
-    <article className="overflow-hidden rounded-md border border-zinc-200 bg-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-md">
-      <div className="relative aspect-[4/3] bg-zinc-100">
+    <article className="group overflow-hidden rounded-2xl border border-[#e5e0d8] bg-white shadow-sm transition duration-200 hover:-translate-y-1 hover:shadow-[0_12px_30px_rgba(124,106,85,0.12)]">
+      <div className="relative aspect-[341/213] bg-[#f3eee8]">
         <Image
           src={item.foto}
           alt={`Foto ${item.nama}`}
           fill
           sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-          className="object-cover"
+          className="object-cover object-center transition duration-500 group-hover:scale-105"
         />
       </div>
-      <div className="p-5">
+      <div className="p-5 sm:p-6">
         <div className="flex items-center justify-between gap-3">
-          <span className="rounded-md bg-green-50 px-2.5 py-1 text-xs font-semibold text-green-700">
+          <span className="rounded-full bg-[#e7d8c9] px-3 py-1 text-xs font-bold text-[#7c6a55]">
             {item.kategori}
           </span>
-          <span className="text-xs text-zinc-500">Pemilik: {item.pemilik}</span>
+          <span className="text-xs font-medium text-slate-500">Pemilik: {item.pemilik}</span>
         </div>
-        <h3 className="mt-4 text-lg font-bold text-zinc-950">{item.nama}</h3>
-        <p className="mt-2 line-clamp-3 text-sm leading-6 text-zinc-600">
+        <h3 className="mt-4 text-xl font-bold text-slate-950">{item.nama}</h3>
+        <p className="mt-2 line-clamp-3 text-sm leading-6 text-slate-600">
           {item.deskripsi}
         </p>
         <div className="mt-5 flex flex-wrap gap-2">
@@ -38,14 +38,12 @@ export function UmkmCard({ item }: { item: UMKM }) {
             WhatsApp
           </ButtonLink>
           <ButtonLink
-            href={item.maps}
-            target="_blank"
-            rel="noopener noreferrer"
+            href={`/umkm/${encodeURIComponent(item.id)}`}
             variant="secondary"
             size="sm"
           >
-            <MapPin size={16} aria-hidden="true" />
-            Lokasi
+            <Eye size={16} aria-hidden="true" />
+            Detail
           </ButtonLink>
         </div>
       </div>

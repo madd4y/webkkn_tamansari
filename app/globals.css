@@ -1,11 +1,17 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #18181b;
-  --primary: #16a34a;
-  --secondary: #22c55e;
-  --soft: #f5f5f5;
+  --background: #f8f5f0;
+  --foreground: #1f2937;
+  --primary: #7c6a55;
+  --primary-hover: #6d5b47;
+  --secondary: #b8a38a;
+  --muted: #6b7280;
+  --border: #e5e0d8;
+  --card: #ffffff;
+  --soft: #f3eee8;
+  --accent: #e7d8c9;
+  --input-background: #ffffff;
 }
 
 @theme inline {
@@ -19,6 +25,7 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  text-rendering: optimizeLegibility;
 }
 
 button,
@@ -30,13 +37,116 @@ select {
 }
 
 ::selection {
-  background: #bbf7d0;
-  color: #14532d;
+  background: var(--accent);
+  color: #4b3f31;
 }
 
 .surface-grid {
   background-image:
-    linear-gradient(rgba(22, 163, 74, 0.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(22, 163, 74, 0.08) 1px, transparent 1px);
+    linear-gradient(rgba(124, 106, 85, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(184, 163, 138, 0.1) 1px, transparent 1px);
   background-size: 32px 32px;
+}
+
+.soft-page-bg {
+  background:
+    linear-gradient(135deg, rgba(248, 245, 240, 0.98) 0%, rgba(255, 255, 255, 0.96) 46%, rgba(243, 238, 232, 0.88) 100%),
+    linear-gradient(180deg, #ffffff 0%, #f8f5f0 100%);
+}
+
+.card-surface {
+  border: 1px solid var(--border);
+  background: var(--card);
+  box-shadow: 0 12px 30px rgba(124, 106, 85, 0.08);
+}
+
+@layer utilities {
+  .bg-emerald-600,
+  .bg-teal-800 {
+    background-color: var(--primary);
+  }
+
+  .hover\:bg-emerald-700:hover {
+    background-color: var(--primary-hover);
+  }
+
+  .bg-emerald-50,
+  .bg-cyan-50,
+  .bg-amber-100,
+  .bg-slate-50,
+  .bg-\[\#f7faf9\] {
+    background-color: var(--soft);
+  }
+
+  .bg-slate-100,
+  .bg-emerald-100,
+  .hover\:bg-slate-100:hover,
+  .hover\:bg-emerald-50:hover {
+    background-color: #f2ede4;
+  }
+
+  .bg-red-600 {
+    background-color: #b4533e;
+  }
+
+  .hover\:bg-red-700:hover {
+    background-color: #9f4533;
+  }
+
+  .text-emerald-700,
+  .text-emerald-800,
+  .text-cyan-700,
+  .text-amber-700,
+  .text-sky-700 {
+    color: var(--primary);
+  }
+
+  .text-emerald-900,
+  .text-slate-950,
+  .hover\:text-slate-950:hover {
+    color: var(--foreground);
+  }
+
+  .text-emerald-50,
+  .text-emerald-100 {
+    color: #f7f3ec;
+  }
+
+  .text-emerald-300 {
+    color: var(--accent);
+  }
+
+  .border-emerald-100,
+  .border-emerald-200,
+  .border-teal-300,
+  .border-slate-200,
+  .border-slate-200\/80 {
+    border-color: var(--border);
+  }
+
+  .ring-emerald-100,
+  .ring-emerald-200,
+  .ring-cyan-200,
+  .ring-amber-200,
+  .ring-slate-200 {
+    --tw-ring-color: var(--border);
+  }
+
+  .focus\:border-emerald-500:focus {
+    border-color: var(--primary);
+  }
+
+  .focus\:ring-emerald-100:focus {
+    --tw-ring-color: rgba(124, 106, 85, 0.18);
+  }
+
+  .focus-visible\:outline-emerald-600:focus-visible {
+    outline-color: var(--primary);
+  }
+
+  .shadow-emerald-900\/15,
+  .shadow-emerald-950\/5,
+  .shadow-teal-950\/30 {
+    --tw-shadow-color: rgba(75, 63, 49, 0.16);
+  }
 }

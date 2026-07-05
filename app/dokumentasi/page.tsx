@@ -9,7 +9,7 @@ export const metadata = {
 };
 
 export default async function DokumentasiPage() {
-  const items = await getDokumentasi();
+  const items = (await getDokumentasi()).data;
 
   return (
     <PublicLayout>
@@ -18,7 +18,7 @@ export default async function DokumentasiPage() {
         title="Arsip kegiatan padukuhan"
         description="Dokumentasi kegiatan masyarakat, program KKN, dan agenda padukuhan yang tersimpan secara digital."
       />
-      <section className="bg-zinc-50 py-16">
+      <section className="bg-white py-16">
         <Container>
           <DokumentasiExplorer items={items} />
         </Container>

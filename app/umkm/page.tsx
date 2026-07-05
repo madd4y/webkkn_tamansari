@@ -9,16 +9,16 @@ export const metadata = {
 };
 
 export default async function UMKMPage() {
-  const items = await getUMKM();
+  const items = (await getUMKM()).data;
 
   return (
     <PublicLayout>
       <PageHeader
         eyebrow="UMKM"
         title="Potensi usaha masyarakat"
-        description="Temukan produk dan layanan lokal Padukuhan Gedangsari berdasarkan nama, kategori, atau pemilik."
+        description="Temukan produk dan layanan lokal Padukuhan Tamansari berdasarkan nama, kategori, atau pemilik."
       />
-      <section className="bg-zinc-50 py-16">
+      <section className="bg-white py-16">
         <Container>
           <UmkmExplorer items={items} />
         </Container>

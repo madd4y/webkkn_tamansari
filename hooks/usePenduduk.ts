@@ -6,6 +6,9 @@ import { getPenduduk } from "@/services/penduduk.service";
 export function usePenduduk() {
   return useQuery({
     queryKey: ["penduduk"],
-    queryFn: getPenduduk,
+    queryFn: async () => {
+      const response = await getPenduduk();
+      return response.data;
+    },
   });
 }

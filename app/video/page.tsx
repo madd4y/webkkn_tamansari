@@ -12,7 +12,7 @@ export const metadata = {
 };
 
 export default async function VideoPage() {
-  const video = await getVideoProfil();
+  const video = (await getVideoProfil()).data;
   const embedUrl = getYouTubeEmbedUrl(video.youtubeUrl);
 
   return (
@@ -22,10 +22,10 @@ export default async function VideoPage() {
         title={video.judul}
         description="Video profil padukuhan yang dapat diperbarui melalui dashboard admin."
       />
-      <section className="py-16">
+      <section className="bg-white py-16">
         <Container>
-          <div className="overflow-hidden rounded-md border border-zinc-200 bg-white shadow-sm">
-            <div className="aspect-video bg-zinc-950">
+          <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm shadow-slate-950/5">
+            <div className="aspect-video bg-slate-950">
               {embedUrl ? (
                 <iframe
                   src={embedUrl}
@@ -33,16 +33,17 @@ export default async function VideoPage() {
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
                   className="h-full w-full"
+                  loading="lazy"
                 />
               ) : null}
             </div>
-            <div className="p-6">
-              <div className="flex items-center gap-2 text-sm font-semibold text-green-700">
+            <div className="p-6 sm:p-8">
+              <div className="flex items-center gap-2 text-sm font-semibold text-emerald-700">
                 <CalendarDays size={17} aria-hidden="true" />
                 {format(new Date(video.tanggalPublikasi), "dd MMMM yyyy", { locale: id })}
               </div>
-              <h2 className="mt-3 text-2xl font-bold text-zinc-950">{video.judul}</h2>
-              <p className="mt-3 max-w-3xl leading-7 text-zinc-700">{video.deskripsi}</p>
+              <h2 className="mt-3 text-2xl font-bold text-slate-950">{video.judul}</h2>
+              <p className="mt-3 max-w-3xl leading-8 text-slate-700">{video.deskripsi}</p>
             </div>
           </div>
         </Container>

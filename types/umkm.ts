@@ -8,4 +8,5 @@ export interface UMKM {
   maps: string;
   foto: string;
   createdAt: string;
+  jamBuka: string;
 }

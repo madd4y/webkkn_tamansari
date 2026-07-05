@@ -61,10 +61,10 @@ export function AdminLoginForm() {
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="mt-8 grid gap-5">
       <label className="block">
-        <span className="text-sm font-semibold text-zinc-700">Email</span>
+        <span className="text-sm font-semibold text-slate-700">Email</span>
         <span className="relative mt-2 block">
           <Mail
-            className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-zinc-400"
+            className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-slate-400"
             size={18}
             aria-hidden="true"
           />
@@ -72,7 +72,7 @@ export function AdminLoginForm() {
             type="email"
             autoComplete="email"
             placeholder="admin@example.com"
-            className="h-12 w-full rounded-md border border-zinc-200 bg-white pl-10 pr-3 text-sm text-zinc-950 outline-none transition focus:border-green-500 focus:ring-4 focus:ring-green-100"
+            className="h-12 w-full rounded-xl border border-slate-200 bg-white pl-10 pr-3 text-sm text-slate-950 outline-none transition focus:border-emerald-500 focus:ring-4 focus:ring-emerald-100"
             {...register("email")}
           />
         </span>
@@ -84,10 +84,10 @@ export function AdminLoginForm() {
       </label>
 
       <label className="block">
-        <span className="text-sm font-semibold text-zinc-700">Password</span>
+        <span className="text-sm font-semibold text-slate-700">Password</span>
         <span className="relative mt-2 block">
           <LockKeyhole
-            className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-zinc-400"
+            className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-slate-400"
             size={18}
             aria-hidden="true"
           />
@@ -95,13 +95,13 @@ export function AdminLoginForm() {
             type={showPassword ? "text" : "password"}
             autoComplete="current-password"
             placeholder="Masukkan password admin"
-            className="h-12 w-full rounded-md border border-zinc-200 bg-white pl-10 pr-12 text-sm text-zinc-950 outline-none transition focus:border-green-500 focus:ring-4 focus:ring-green-100"
+            className="h-12 w-full rounded-xl border border-slate-200 bg-white pl-10 pr-12 text-sm text-slate-950 outline-none transition focus:border-emerald-500 focus:ring-4 focus:ring-emerald-100"
             {...register("password")}
           />
           <button
             type="button"
             onClick={() => setShowPassword((value) => !value)}
-            className="absolute right-2 top-1/2 flex size-8 -translate-y-1/2 items-center justify-center rounded-md text-zinc-500 transition hover:bg-zinc-100 hover:text-zinc-950"
+            className="absolute right-2 top-1/2 flex size-8 -translate-y-1/2 items-center justify-center rounded-xl text-slate-500 transition hover:bg-slate-100 hover:text-slate-950"
             aria-label={showPassword ? "Sembunyikan password" : "Tampilkan password"}
           >
             {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}

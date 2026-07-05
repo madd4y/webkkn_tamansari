@@ -1,11 +1,13 @@
-import { apiGet, apiSend } from "@/lib/api";
+import { apiGet, apiSend, withFallbackData } from "@/lib/api";
 import { pendudukMock } from "@/lib/mock-data";
 import type { Penduduk } from "@/types";
 
 export function getPenduduk() {
-  return apiGet<Penduduk>("/api/penduduk", pendudukMock);
+  return apiGet<Penduduk>("penduduk", pendudukMock).then((response) =>
+    withFallbackData(response, pendudukMock),
+  );
 }
 
 export function updatePenduduk(payload: Penduduk) {
-  return apiSend<Penduduk, Penduduk>("/api/penduduk", "PUT", payload);
+  return apiSend<Penduduk, Penduduk>("penduduk", "PUT", payload);
 }

@@ -1,11 +1,13 @@
-import { apiGet, apiSend } from "@/lib/api";
+import { apiGet, apiSend, withFallbackData } from "@/lib/api";
 import { videoMock } from "@/lib/mock-data";
 import type { VideoProfil } from "@/types";
 
 export function getVideoProfil() {
-  return apiGet<VideoProfil>("/api/video", videoMock);
+  return apiGet<VideoProfil>("video", videoMock).then((response) =>
+    withFallbackData(response, videoMock),
+  );
 }
 
 export function updateVideoProfil(payload: VideoProfil) {
-  return apiSend<VideoProfil, VideoProfil>("/api/video", "PUT", payload);
+  return apiSend<VideoProfil, VideoProfil>("video", "PUT", payload, payload.id);
 }

@@ -6,6 +6,9 @@ import { getUMKM } from "@/services/umkm.service";
 export function useUMKM() {
   return useQuery({
     queryKey: ["umkm"],
-    queryFn: getUMKM,
+    queryFn: async () => {
+      const response = await getUMKM();
+      return response.data;
+    },
   });
 }

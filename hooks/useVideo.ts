@@ -6,6 +6,9 @@ import { getVideoProfil } from "@/services/video.service";
 export function useVideo() {
   return useQuery({
     queryKey: ["video"],
-    queryFn: getVideoProfil,
+    queryFn: async () => {
+      const response = await getVideoProfil();
+      return response.data;
+    },
   });
 }

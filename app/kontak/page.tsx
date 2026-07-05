@@ -11,40 +11,40 @@ export const metadata = {
 };
 
 export default async function KontakPage() {
-  const kontak = await getKontak();
+  const kontak = (await getKontak()).data;
 
   return (
     <PublicLayout>
       <PageHeader
         eyebrow="Kontak"
-        title="Hubungi Padukuhan Gedangsari"
+        title="Hubungi Padukuhan Tamansari"
         description="Informasi alamat, layanan, WhatsApp, email, dan lokasi padukuhan."
       />
-      <section className="py-16">
+      <section className="bg-white py-16">
         <Container>
           <div className="grid gap-8 lg:grid-cols-[0.85fr_1.15fr]">
-            <div className="rounded-md border border-zinc-200 bg-white p-6 shadow-sm">
-              <h2 className="text-xl font-bold text-zinc-950">{kontak.namaPadukuhan}</h2>
-              <div className="mt-6 grid gap-4 text-zinc-700">
+            <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm shadow-slate-950/5 sm:p-8">
+              <h2 className="text-xl font-bold text-slate-950">{kontak.namaPadukuhan}</h2>
+              <div className="mt-6 grid gap-4 text-slate-700">
                 <p className="flex gap-3">
-                  <MapPinned className="mt-0.5 shrink-0 text-green-700" size={19} />
+                  <MapPinned className="mt-0.5 shrink-0 text-emerald-700" size={19} />
                   {kontak.alamat}
                 </p>
                 <p className="flex items-center gap-3">
-                  <Phone className="text-green-700" size={19} />
+                  <Phone className="text-emerald-700" size={19} />
                   {kontak.telepon}
                 </p>
                 <p className="flex items-center gap-3">
-                  <Mail className="text-green-700" size={19} />
+                  <Mail className="text-emerald-700" size={19} />
                   {kontak.email}
                 </p>
               </div>
-              <div className="mt-6 rounded-md bg-green-50 p-4">
-                <p className="text-sm font-semibold text-green-900">Jam Pelayanan</p>
-                <p className="mt-1 text-sm text-green-800">{kontak.jamPelayanan}</p>
+              <div className="mt-6 rounded-2xl border border-emerald-100 bg-emerald-50 p-4">
+                <p className="text-sm font-semibold text-emerald-900">Jam Pelayanan</p>
+                <p className="mt-1 text-sm text-emerald-800">{kontak.jamPelayanan}</p>
               </div>
               <ButtonLink
-                href={getWhatsAppUrl(kontak.whatsapp, "Halo, saya ingin menghubungi Padukuhan Gedangsari.")}
+                href={getWhatsAppUrl(kontak.whatsapp, "Halo, saya ingin menghubungi Padukuhan Tamansari.")}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-6 w-full"
@@ -53,10 +53,10 @@ export default async function KontakPage() {
                 Hubungi via WhatsApp
               </ButtonLink>
             </div>
-            <div className="overflow-hidden rounded-md border border-zinc-200 bg-white shadow-sm">
+            <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm shadow-slate-950/5">
               <iframe
                 src={kontak.maps}
-                title="Peta lokasi Padukuhan Gedangsari"
+                title="Peta lokasi Padukuhan Tamansari"
                 className="h-[520px] w-full"
                 loading="lazy"
               />

@@ -28,11 +28,11 @@ export function DokumentasiExplorer({ items }: { items: Dokumentasi[] }) {
 
   return (
     <div className="space-y-8">
-      <div className="grid gap-3 rounded-md border border-zinc-200 bg-white p-4 shadow-sm md:grid-cols-[1fr_180px]">
+      <div className="grid gap-3 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm shadow-slate-950/5 md:grid-cols-[1fr_180px]">
         <label className="relative block">
           <span className="sr-only">Cari dokumentasi</span>
           <Search
-            className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-zinc-400"
+            className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-slate-400"
             size={18}
             aria-hidden="true"
           />
@@ -40,7 +40,7 @@ export function DokumentasiExplorer({ items }: { items: Dokumentasi[] }) {
             value={query}
             onChange={(event) => setQuery(event.target.value)}
             placeholder="Cari judul atau tanggal"
-            className="h-11 w-full rounded-md border border-zinc-200 bg-white pl-10 pr-3 text-sm text-zinc-950 outline-none transition focus:border-green-500 focus:ring-4 focus:ring-green-100"
+            className="h-11 w-full rounded-xl border border-slate-200 bg-white pl-10 pr-3 text-sm text-slate-950 outline-none transition placeholder:text-slate-400 focus:border-emerald-500 focus:ring-4 focus:ring-emerald-100"
           />
         </label>
         <label>
@@ -48,7 +48,7 @@ export function DokumentasiExplorer({ items }: { items: Dokumentasi[] }) {
           <select
             value={year}
             onChange={(event) => setYear(event.target.value)}
-            className="h-11 w-full rounded-md border border-zinc-200 bg-white px-3 text-sm font-medium text-zinc-800 outline-none transition focus:border-green-500 focus:ring-4 focus:ring-green-100"
+            className="h-11 w-full rounded-xl border border-slate-200 bg-white px-3 text-sm font-medium text-slate-800 outline-none transition focus:border-emerald-500 focus:ring-4 focus:ring-emerald-100"
           >
             {years.map((item) => (
               <option key={item}>{item}</option>

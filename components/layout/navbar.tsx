@@ -2,10 +2,9 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X } from "lucide-react";
+import { Landmark, Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
-import { ButtonLink } from "@/components/ui/button";
 
 const navItems = [
   { href: "/", label: "Beranda" },
@@ -21,8 +20,8 @@ export function Navbar() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const isHome = pathname === "/";
-  const transparent = isHome && !scrolled && !open;
+  const transparent = !scrolled && !open;
+  const onHomeHero = pathname === "/" && transparent;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -34,38 +33,39 @@ export function Navbar() {
   return (
     <header
       className={cn(
-        "fixed inset-x-0 top-0 z-50 transition",
+        "fixed inset-x-0 top-0 z-50 transition duration-300",
+        "h-[104px]",
         transparent
-          ? "bg-transparent text-white"
-          : "border-b border-zinc-200 bg-white/95 text-zinc-950 shadow-sm backdrop-blur",
+          ? "border-b border-transparent bg-transparent text-[#1f2937]"
+          : "border-b border-[#e5e0d8] bg-white/95 text-[#1f2937] shadow-sm backdrop-blur-xl",
       )}
     >
-      <nav className="mx-auto flex h-18 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+      <nav className="mx-auto flex h-[104px] max-w-[1550px] items-center justify-between px-8 xl:px-12">
         <Link href="/" className="flex items-center gap-3" onClick={() => setOpen(false)}>
-          <span
-            className={cn(
-              "flex size-10 items-center justify-center rounded-md font-bold",
-              transparent ? "bg-white text-green-700" : "bg-green-600 text-white",
-            )}
-          >
-            G
+          <span className="flex size-14 items-center justify-center rounded-full bg-[#8a7358] text-white shadow-[0_4px_10px_rgba(31,41,55,0.18)]">
+            <Landmark size={25} aria-hidden="true" />
           </span>
           <span className="min-w-0">
-            <span className="block text-sm font-bold leading-5">
-              Padukuhan Gedangsari
+            <span
+              className={cn(
+                "block text-2xl font-extrabold leading-7",
+                onHomeHero ? "text-white" : "text-[#1f2937]",
+              )}
+            >
+              Padukuhan
             </span>
             <span
               className={cn(
-                "block text-xs leading-4",
-                transparent ? "text-green-50" : "text-zinc-500",
+                "block text-lg font-extrabold leading-5",
+                onHomeHero ? "text-[#ead8b8]" : "text-[#8a7358]",
               )}
             >
-              Profil Digital
+              Tamansari
             </span>
           </span>
         </Link>
 
-        <div className="hidden items-center gap-1 lg:flex">
+        <div className="hidden items-center gap-3 lg:flex">
           {navItems.map((item) => {
             const active =
               item.href === "/" ? pathname === "/" : pathname.startsWith(item.href);
@@ -75,14 +75,14 @@ export function Navbar() {
                 key={item.href}
                 href={item.href}
                 className={cn(
-                  "rounded-md px-3 py-2 text-sm font-semibold transition",
+                  "rounded-xl px-3 py-2 text-sm font-semibold transition",
                   active
-                    ? transparent
-                      ? "bg-white/15 text-white"
-                      : "bg-green-50 text-green-700"
-                    : transparent
-                      ? "text-white/85 hover:bg-white/10 hover:text-white"
-                      : "text-zinc-700 hover:bg-zinc-100 hover:text-zinc-950",
+                    ? onHomeHero
+                      ? "bg-white/15 px-6 py-3 text-2xl font-extrabold text-white"
+                      : "bg-[#eeeae6] px-6 py-3 text-2xl font-extrabold text-[#8a7358]"
+                    : onHomeHero
+                      ? "px-4 py-3 text-2xl font-extrabold text-white/85 hover:bg-white/10 hover:text-white"
+                      : "px-4 py-3 text-2xl font-extrabold text-[#6b7280] hover:bg-[#f3eee8] hover:text-[#1f2937]",
                 )}
               >
                 {item.label}
@@ -91,21 +91,11 @@ export function Navbar() {
           })}
         </div>
 
-        <div className="hidden lg:block">
-          <ButtonLink
-            href="/admin/dashboard"
-            variant={transparent ? "secondary" : "primary"}
-            size="sm"
-          >
-            Admin
-          </ButtonLink>
-        </div>
-
         <button
           type="button"
           className={cn(
-            "inline-flex size-10 items-center justify-center rounded-md lg:hidden",
-            transparent ? "bg-white/15 text-white" : "bg-zinc-100 text-zinc-950",
+            "inline-flex size-12 items-center justify-center rounded-xl lg:hidden",
+            onHomeHero ? "bg-white/15 text-white" : "bg-[#f3eee8] text-[#1f2937]",
           )}
           aria-label={open ? "Tutup menu" : "Buka menu"}
           onClick={() => setOpen((value) => !value)}
@@ -115,21 +105,28 @@ export function Navbar() {
       </nav>
 
       {open ? (
-        <div className="border-t border-zinc-200 bg-white px-4 pb-5 pt-2 text-zinc-950 shadow-lg lg:hidden">
+        <div className="border-t border-[#e5e0d8] bg-white/95 px-5 pb-5 pt-2 text-[#1f2937] shadow-lg backdrop-blur-xl lg:hidden">
           <div className="mx-auto grid max-w-7xl gap-1">
-            {navItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="rounded-md px-3 py-2 text-sm font-semibold text-zinc-700 hover:bg-zinc-100"
-                onClick={() => setOpen(false)}
-              >
-                {item.label}
-              </Link>
-            ))}
-            <ButtonLink href="/admin/dashboard" className="mt-2" onClick={() => setOpen(false)}>
-              Admin
-            </ButtonLink>
+            {navItems.map((item) => {
+              const active =
+                item.href === "/" ? pathname === "/" : pathname.startsWith(item.href);
+
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className={cn(
+                    "rounded-xl px-3 py-2 text-sm font-semibold transition",
+                    active
+                      ? "bg-[#e7d8c9] text-[#7c6a55]"
+                      : "text-slate-700 hover:bg-[#f3eee8]",
+                  )}
+                  onClick={() => setOpen(false)}
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
           </div>
         </div>
       ) : null}

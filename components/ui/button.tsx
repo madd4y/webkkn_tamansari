@@ -4,17 +4,17 @@ import { cn } from "@/lib/utils";
 
 const variants = {
   primary:
-    "bg-green-600 text-white shadow-sm shadow-green-900/10 hover:bg-green-700",
+    "bg-[#7c6a55] text-white shadow-sm shadow-[#4b3f31]/15 hover:bg-[#6d5b47]",
   secondary:
-    "border border-green-200 bg-white text-green-800 hover:border-green-300 hover:bg-green-50",
-  ghost: "text-zinc-700 hover:bg-zinc-100 hover:text-zinc-950",
-  danger: "bg-red-600 text-white hover:bg-red-700",
+    "border border-transparent bg-[#e7d8c9] text-[#7c6a55] shadow-sm hover:bg-[#deceb9]",
+  ghost: "text-slate-600 hover:bg-[#f2ede4] hover:text-[#1f2937]",
+  danger: "bg-[#b4533e] text-white shadow-sm shadow-red-900/10 hover:bg-[#9f4533]",
 };
 
 const sizes = {
-  sm: "h-9 px-3 text-sm",
-  md: "h-11 px-4 text-sm",
-  lg: "h-12 px-5 text-base",
+  sm: "h-8 px-3 text-xs",
+  md: "h-11 px-5 text-sm",
+  lg: "h-[52px] px-7 text-base",
 };
 
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
@@ -39,7 +39,7 @@ export function Button({
     <button
       type={type}
       className={cn(
-        "inline-flex items-center justify-center gap-2 rounded-md font-semibold transition focus-visible:outline-2 focus-visible:outline-offset-2 disabled:pointer-events-none disabled:opacity-60",
+        "inline-flex items-center justify-center gap-2 rounded-2xl font-semibold transition duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#7c6a55] disabled:pointer-events-none disabled:opacity-60",
         variants[variant],
         sizes[size],
         className,
@@ -58,7 +58,7 @@ export function ButtonLink({
   return (
     <Link
       className={cn(
-        "inline-flex items-center justify-center gap-2 rounded-md font-semibold transition focus-visible:outline-2 focus-visible:outline-offset-2",
+        "inline-flex items-center justify-center gap-2 rounded-2xl font-semibold transition duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#7c6a55]",
         variants[variant],
         sizes[size],
         className,
