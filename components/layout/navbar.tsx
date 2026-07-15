@@ -34,21 +34,21 @@ export function Navbar() {
     <header
       className={cn(
         "fixed inset-x-0 top-0 z-50 transition duration-300",
-        "h-[104px]",
+        "h-20 lg:h-[104px]",
         transparent
           ? "border-b border-transparent bg-transparent text-[#1f2937]"
           : "border-b border-[#e5e0d8] bg-white/95 text-[#1f2937] shadow-sm backdrop-blur-xl",
       )}
     >
-      <nav className="mx-auto flex h-[104px] max-w-[1550px] items-center justify-between px-8 xl:px-12">
+      <nav className="mx-auto flex h-20 max-w-[1550px] items-center justify-between px-5 sm:px-6 lg:h-[104px] lg:px-8 xl:px-12">
         <Link href="/" className="flex items-center gap-3" onClick={() => setOpen(false)}>
-          <span className="flex size-14 items-center justify-center rounded-full bg-[#8a7358] text-white shadow-[0_4px_10px_rgba(31,41,55,0.18)]">
-            <Landmark size={25} aria-hidden="true" />
+          <span className="flex size-11 items-center justify-center rounded-full bg-[#8a7358] text-white shadow-[0_4px_10px_rgba(31,41,55,0.18)] lg:size-14">
+            <Landmark className="size-5 lg:size-[25px]" aria-hidden="true" />
           </span>
           <span className="min-w-0">
             <span
               className={cn(
-                "block text-2xl font-extrabold leading-7",
+                "block text-lg font-extrabold leading-5 lg:text-2xl lg:leading-7",
                 onHomeHero ? "text-white" : "text-[#1f2937]",
               )}
             >
@@ -56,7 +56,7 @@ export function Navbar() {
             </span>
             <span
               className={cn(
-                "block text-lg font-extrabold leading-5",
+                "block text-sm font-extrabold leading-4 lg:text-lg lg:leading-5",
                 onHomeHero ? "text-[#ead8b8]" : "text-[#8a7358]",
               )}
             >
@@ -105,7 +105,7 @@ export function Navbar() {
       </nav>
 
       {open ? (
-        <div className="border-t border-[#e5e0d8] bg-white/95 px-5 pb-5 pt-2 text-[#1f2937] shadow-lg backdrop-blur-xl lg:hidden">
+        <div className="max-h-[calc(100dvh-80px)] overflow-y-auto border-t border-[#e5e0d8] bg-white/95 px-5 pb-5 pt-2 text-[#1f2937] shadow-lg backdrop-blur-xl lg:hidden">
           <div className="mx-auto grid max-w-7xl gap-1">
             {navItems.map((item) => {
               const active =

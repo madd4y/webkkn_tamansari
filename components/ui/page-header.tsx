@@ -26,7 +26,7 @@ export function PageHeader({
   const image = eyebrow === "Video Profil" ? undefined : headerImages[eyebrow] ?? fallbackImage;
 
   return (
-    <section className="relative flex min-h-[360px] items-center overflow-hidden border-b border-[#e5ded3] bg-[#f7f3ec] pb-20 pt-32 shadow-[0_14px_35px_rgba(139,115,85,0.08)]">
+    <section className="relative flex min-h-[300px] items-center overflow-hidden border-b border-[#e5ded3] bg-[#f7f3ec] pb-14 pt-28 shadow-[0_14px_35px_rgba(139,115,85,0.08)] sm:min-h-[340px] sm:pb-20 sm:pt-32 lg:min-h-[360px]">
       {image ? (
         <div
           className="absolute inset-y-0 right-0 hidden w-[70%] bg-cover bg-center opacity-100 lg:block"
@@ -46,10 +46,10 @@ export function PageHeader({
             <p className="inline-flex rounded-full border border-[#e5ded3] bg-white/75 px-3 py-1 text-xs font-extrabold uppercase tracking-[0.16em] text-[#8b7355] shadow-sm backdrop-blur">
               {eyebrow}
             </p>
-            <h1 className="mt-5 max-w-4xl text-4xl font-extrabold leading-tight tracking-normal text-[#1f2937] sm:text-5xl">
+            <h1 className="mt-5 max-w-4xl text-3xl font-extrabold leading-tight tracking-normal text-[#1f2937] sm:text-5xl">
               {title}
             </h1>
-            <p className="mt-5 max-w-3xl text-base font-semibold leading-8 text-[#6b7280] sm:text-lg">
+            <p className="mt-5 max-w-3xl text-sm font-semibold leading-7 text-[#6b7280] sm:text-lg sm:leading-8">
               {description}
             </p>
           </div>

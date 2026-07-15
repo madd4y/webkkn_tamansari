@@ -136,7 +136,7 @@ export default async function ProfilPage() {
 
   return (
     <PublicLayout>
-      <section className="relative flex min-h-[360px] items-center overflow-hidden border-b border-[#e5ded3] bg-[#f7f3ec] pb-20 pt-32 shadow-[0_14px_35px_rgba(139,115,85,0.08)]">
+      <section className="relative flex min-h-[300px] items-center overflow-hidden border-b border-[#e5ded3] bg-[#f7f3ec] pb-14 pt-28 shadow-[0_14px_35px_rgba(139,115,85,0.08)] sm:min-h-[360px] sm:pb-20 sm:pt-32">
         <div
           className="absolute inset-y-0 right-0 hidden w-[70%] bg-cover bg-center lg:block"
           style={{
@@ -148,15 +148,15 @@ export default async function ProfilPage() {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_20%,rgba(139,115,85,0.12),transparent_30%),linear-gradient(120deg,#f7f3ec_0%,#f7f3ec_46%,rgba(247,243,236,0.55)_72%,rgba(247,243,236,0.08)_100%)]" />
         <div className="absolute inset-0 hidden bg-gradient-to-r from-[#f7f3ec] via-[#f7f3ec]/82 via-46% to-transparent lg:block" />
         <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-b from-transparent via-[#f7f3ec]/78 to-[#f7f3ec]" />
-        <div className="relative mx-auto w-full max-w-[1280px] px-8">
+        <div className="relative mx-auto w-full max-w-[1280px] px-5 sm:px-8">
           <div className="max-w-3xl">
-            <p className="inline-flex rounded-full border border-[#e5ded3] bg-white/75 px-3 py-1 text-sm font-extrabold uppercase tracking-[0.18em] text-[#8b7355] shadow-sm backdrop-blur">
+            <p className="inline-flex rounded-full border border-[#e5ded3] bg-white/75 px-3 py-1 text-xs font-extrabold uppercase tracking-[0.16em] text-[#8b7355] shadow-sm backdrop-blur sm:text-sm sm:tracking-[0.18em]">
               Tentang Kami
             </p>
-            <h1 className="mt-5 max-w-3xl text-4xl font-extrabold leading-tight text-[#1f2937] sm:text-5xl">
+            <h1 className="mt-5 max-w-3xl text-3xl font-extrabold leading-tight text-[#1f2937] sm:text-5xl">
               Profil {kontak.namaPadukuhan}
             </h1>
-            <p className="mt-5 max-w-2xl text-base font-semibold leading-8 text-[#6b7280]">
+            <p className="mt-5 max-w-2xl text-sm font-semibold leading-7 text-[#6b7280] sm:text-base sm:leading-8">
               Informasi resmi tentang sejarah, visi, misi, dan struktur organisasi{" "}
               {kontak.namaPadukuhan}.
             </p>
@@ -164,10 +164,10 @@ export default async function ProfilPage() {
         </div>
       </section>
 
-      <section className="bg-white py-12">
-        <div className="mx-auto grid max-w-[1143px] gap-8 px-8">
+      <section className="bg-white py-10 sm:py-12">
+        <div className="mx-auto grid max-w-[1143px] gap-6 px-5 sm:gap-8 sm:px-8">
           <div className="grid gap-8 lg:grid-cols-[minmax(0,2fr)_338px]">
-            <SectionCard className="p-8">
+            <SectionCard className="p-5 sm:p-8">
               <IconTitle icon={BookOpenText} title="Sejarah Padukuhan" />
               <div className="mt-5 space-y-4 text-sm leading-7 text-[#6b7280]">
                 {profil.sejarah
@@ -188,14 +188,14 @@ export default async function ProfilPage() {
           </div>
 
           <div className="grid gap-6 lg:grid-cols-2">
-            <SectionCard className="min-h-[242px] !bg-[#8b7355] p-8">
+            <SectionCard className="min-h-[220px] !bg-[#8b7355] p-5 sm:min-h-[242px] sm:p-8">
               <IconTitle icon={Globe2} title="Visi" dark />
               <p className="mt-5 text-sm leading-[22.75px] text-white/90">
                 {visi}
               </p>
             </SectionCard>
 
-            <SectionCard className="min-h-[242px] p-8">
+            <SectionCard className="min-h-[220px] p-5 sm:min-h-[242px] sm:p-8">
               <IconTitle icon={Award} title="Misi" />
               <ul className="mt-5 grid gap-3">
                 {profil.misi.map((item) => (
@@ -208,7 +208,7 @@ export default async function ProfilPage() {
             </SectionCard>
           </div>
 
-          <SectionCard className="p-8">
+          <SectionCard className="p-5 sm:p-8">
             <IconTitle icon={UsersRound} title="Struktur Organisasi" />
             <div className="mt-12 flex flex-col items-center">
               <OrgNode member={dukuh} primary />
@@ -231,7 +231,7 @@ export default async function ProfilPage() {
             </div>
           </SectionCard>
 
-          <SectionCard className="p-8">
+          <SectionCard className="p-5 sm:p-8">
             <IconTitle icon={MapPinned} title="Letak Geografis" />
             <p className="mt-5 text-sm leading-7 text-[#6b7280]">{profil.geografis}</p>
             <div className="mt-5 grid gap-4 md:grid-cols-2">
@@ -253,13 +253,13 @@ export default async function ProfilPage() {
           </SectionCard>
 
           <SectionCard className="overflow-hidden">
-            <div className="flex items-center gap-3 border-b border-[#e5ded3] bg-white p-6">
+            <div className="flex items-center gap-3 border-b border-[#e5ded3] bg-white p-5 sm:p-6">
               <span className="flex size-10 items-center justify-center rounded-2xl bg-[#8b7355]/10 text-[#8b7355]">
                 <Landmark size={18} aria-hidden="true" />
               </span>
               <h2 className="text-xl font-extrabold text-[#1f2937]">Peta Lokasi</h2>
             </div>
-            <div className="relative h-[300px] bg-[#e8dfd2]">
+            <div className="relative h-[260px] bg-[#e8dfd2] sm:h-[300px]">
               {profil.maps ? (
                 <iframe
                   src={profil.maps}

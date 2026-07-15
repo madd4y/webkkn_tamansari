@@ -36,7 +36,21 @@ const CONFIG = {
   penduduk: {
     sheetName: "Penduduk",
     type: "singleton",
-    headers: ["tahun", "jumlahPenduduk", "lakiLaki", "perempuan", "kk", "rt", "rw"],
+    headers: [
+      "tahun",
+      "jumlahPenduduk",
+      "lakiLaki",
+      "perempuan",
+      "kk",
+      "rt",
+      "rw",
+      "lakiLakiUsia0_19",
+      "lakiLakiUsia20_59",
+      "lakiLakiUsia60Plus",
+      "perempuanUsia0_19",
+      "perempuanUsia20_59",
+      "perempuanUsia60Plus",
+    ],
     jsonFields: [],
   },
   video: {
@@ -279,7 +293,23 @@ function parseValue(value, config, header) {
     }
   }
 
-  if (["tahun", "jumlahPenduduk", "lakiLaki", "perempuan", "kk", "rt", "rw"].indexOf(header) >= 0) {
+  if (
+    [
+      "tahun",
+      "jumlahPenduduk",
+      "lakiLaki",
+      "perempuan",
+      "kk",
+      "rt",
+      "rw",
+      "lakiLakiUsia0_19",
+      "lakiLakiUsia20_59",
+      "lakiLakiUsia60Plus",
+      "perempuanUsia0_19",
+      "perempuanUsia20_59",
+      "perempuanUsia60Plus",
+    ].indexOf(header) >= 0
+  ) {
     return Number(value || 0);
   }
 

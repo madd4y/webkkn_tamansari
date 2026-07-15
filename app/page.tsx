@@ -12,6 +12,7 @@ import {
   MapPin,
   MessageCircle,
   Mountain,
+  Newspaper,
   Phone,
   Play,
   Store,
@@ -20,6 +21,7 @@ import {
 } from "lucide-react";
 import { PublicLayout } from "@/components/layout/public-layout";
 import { ButtonLink } from "@/components/ui/button";
+import { staticArticles } from "@/lib/static-articles";
 import { getWhatsAppUrl, getYouTubeEmbedUrl, formatNumber } from "@/lib/utils";
 import { getKontak } from "@/services/kontak.service";
 import { getSiteData } from "@/services/site.service";
@@ -63,10 +65,10 @@ function SectionHeader({
         <span className="size-1.5 rounded-full bg-[#7c6a55]" />
         {eyebrow}
       </div>
-      <h2 className="mt-4 text-3xl font-extrabold leading-tight text-[#1f2937] sm:text-[40px]">
+      <h2 className="mt-4 text-2xl font-extrabold leading-tight text-[#1f2937] sm:text-[40px]">
         {title}
       </h2>
-      <p className="mx-auto mt-4 max-w-2xl text-base leading-7 text-[#6b7280]">
+      <p className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-[#6b7280] sm:text-base">
         {description}
       </p>
     </div>
@@ -92,30 +94,30 @@ export default async function HomePage() {
   return (
     <PublicLayout>
       <section
-        className="relative min-h-[760px] overflow-hidden bg-cover bg-center pt-[104px] text-white"
+        className="relative min-h-[620px] overflow-hidden bg-cover bg-center pt-20 text-white sm:min-h-[700px] lg:min-h-[760px] lg:pt-[104px]"
         style={{ backgroundImage: `url(${heroImage})` }}
       >
         <div className="absolute inset-0 bg-black/34" />
         <div className="absolute inset-0 bg-gradient-to-r from-[#241f18]/78 via-[#241f18]/32 to-transparent" />
         <div className="absolute inset-x-0 bottom-0 h-52 bg-gradient-to-t from-[#241f18]/78 to-transparent" />
 
-        <div className="relative mx-auto flex min-h-[656px] max-w-[1550px] items-center px-8 xl:px-12">
+        <div className="relative mx-auto flex min-h-[540px] max-w-[1550px] items-center px-5 sm:min-h-[620px] sm:px-8 lg:min-h-[656px] xl:px-12">
           <div className="max-w-[690px]">
-            <div className="inline-flex items-center gap-3 rounded-full border border-[#e3d0b0]/45 bg-[#5e4e38]/70 px-4 py-2 text-base font-extrabold text-[#ead8b8] shadow-sm backdrop-blur">
+            <div className="inline-flex max-w-full items-center gap-2 rounded-full border border-[#e3d0b0]/45 bg-[#5e4e38]/70 px-3 py-2 text-xs font-extrabold text-[#ead8b8] shadow-sm backdrop-blur sm:gap-3 sm:px-4 sm:text-base">
               <Landmark size={15} aria-hidden="true" />
               Padukuhan Tamansari • Gunungkidul, DIY
             </div>
-            <h1 className="mt-10 text-5xl font-extrabold leading-[1.08] tracking-normal sm:text-[68px] lg:text-[74px]">
+            <h1 className="mt-8 text-[42px] font-extrabold leading-[1.08] tracking-normal sm:mt-10 sm:text-[68px] lg:text-[74px]">
               Padukuhan
               <br />
               <span className="text-[#ead8b8]">{name}</span>
             </h1>
-            <p className="mt-6 max-w-[690px] text-xl font-semibold leading-[1.55] text-white/82">
+            <p className="mt-5 max-w-[690px] text-base font-semibold leading-7 text-white/82 sm:mt-6 sm:text-xl sm:leading-[1.55]">
               Padukuhan dengan semangat gotong royong, kearifan lokal, dan
               potensi budaya yang kaya di kawasan Gedangsari, Gunungkidul.
             </p>
             <div className="mt-10 flex flex-wrap gap-4">
-              <ButtonLink href="/profil" size="lg" className="h-12 rounded-2xl px-6 text-base">
+              <ButtonLink href="/profil" size="lg" className="h-11 rounded-2xl px-5 text-sm sm:h-12 sm:px-6 sm:text-base">
                 Lihat Profil
                 <ArrowRight size={19} aria-hidden="true" />
               </ButtonLink>
@@ -123,7 +125,7 @@ export default async function HomePage() {
                 href="/umkm"
                 variant="ghost"
                 size="lg"
-                className="h-12 rounded-2xl border border-white/40 bg-white/10 px-6 text-base text-white backdrop-blur hover:bg-white/20 hover:text-white"
+                className="h-11 rounded-2xl border border-white/40 bg-white/10 px-5 text-sm text-white backdrop-blur hover:bg-white/20 hover:text-white sm:h-12 sm:px-6 sm:text-base"
               >
                 Lihat UMKM
                 <Store size={19} aria-hidden="true" />
@@ -134,7 +136,7 @@ export default async function HomePage() {
       </section>
 
       <section className="relative z-10 bg-white py-12">
-        <div className="mx-auto grid max-w-[1550px] gap-6 px-8 sm:grid-cols-2 lg:grid-cols-4 xl:px-12">
+        <div className="mx-auto grid max-w-[1550px] gap-4 px-5 sm:grid-cols-2 sm:gap-6 sm:px-8 lg:grid-cols-4 xl:px-12">
           {[
             {
               icon: UsersRound,
@@ -159,16 +161,16 @@ export default async function HomePage() {
           ].map((item) => (
             <div
               key={item.label}
-              className="flex min-h-[126px] items-center gap-5 rounded-3xl border border-[#e5e0d8] bg-white p-6 shadow-[0_8px_22px_rgba(31,41,55,0.1)]"
+              className="flex min-h-[104px] items-center gap-4 rounded-3xl border border-[#e5e0d8] bg-white p-5 shadow-[0_8px_22px_rgba(31,41,55,0.1)] sm:min-h-[126px] sm:gap-5 sm:p-6"
             >
               <div className="flex size-14 shrink-0 items-center justify-center rounded-2xl bg-[#f3f0ed] text-[#9a7b55]">
                 <item.icon size={26} aria-hidden="true" />
               </div>
               <div>
-                <p className="text-3xl font-extrabold leading-none text-[#1f2937]">
+                <p className="text-2xl font-extrabold leading-none text-[#1f2937] sm:text-3xl">
                   {item.value}
                 </p>
-                <p className="mt-1.5 text-base font-bold leading-5 text-[#6b7280]">
+                <p className="mt-1.5 text-sm font-bold leading-5 text-[#6b7280] sm:text-base">
                   {item.label}
                 </p>
               </div>
@@ -177,8 +179,8 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <section className="bg-[#f8f5f0] py-20">
-        <div className="mx-auto grid max-w-[1550px] items-center gap-14 px-8 lg:grid-cols-[0.95fr_1.05fr] xl:px-12">
+      <section className="bg-[#f8f5f0] py-14 sm:py-20">
+        <div className="mx-auto grid max-w-[1550px] items-center gap-10 px-5 sm:px-8 lg:grid-cols-[0.95fr_1.05fr] lg:gap-14 xl:px-12">
           <div>
             <p className="text-sm font-extrabold uppercase tracking-[0.2em] text-[#9a7b55]">
               Tentang Kami
@@ -239,9 +241,9 @@ export default async function HomePage() {
                 className="object-cover object-center"
               />
             </div>
-            <div className="absolute -bottom-8 -left-8 rounded-3xl bg-white px-6 py-5 shadow-[0_14px_34px_rgba(31,41,55,0.18)]">
-              <p className="text-base font-bold text-[#6b7280]">Berdiri sejak</p>
-              <p className="mt-1 text-4xl font-extrabold leading-none text-[#8a7358]">
+            <div className="absolute bottom-4 left-4 rounded-3xl bg-white px-5 py-4 shadow-[0_14px_34px_rgba(31,41,55,0.18)] sm:-bottom-8 sm:-left-8 sm:px-6 sm:py-5">
+              <p className="text-sm font-bold text-[#6b7280] sm:text-base">Berdiri sejak</p>
+              <p className="mt-1 text-3xl font-extrabold leading-none text-[#8a7358] sm:text-4xl">
                 1945
               </p>
             </div>
@@ -249,8 +251,8 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <section className="bg-white py-20">
-        <div className="mx-auto max-w-[1143px] px-8">
+      <section className="bg-white py-14 sm:py-20">
+        <div className="mx-auto max-w-[1143px] px-5 sm:px-8">
           <SectionHeader
             eyebrow="Video Profil"
             title="Mengenal Lebih Dekat"
@@ -299,8 +301,8 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <section className="bg-[#f8f5f0] py-20">
-        <div className="mx-auto max-w-[1143px] px-8">
+      <section className="bg-[#f8f5f0] py-14 sm:py-20">
+        <div className="mx-auto max-w-[1143px] px-5 sm:px-8">
           <SectionHeader
             eyebrow="Data Penduduk"
             title="Statistik Kependudukan"
@@ -369,8 +371,8 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <section className="bg-white py-20">
-        <div className="mx-auto max-w-[1143px] px-8">
+      <section className="bg-white py-14 sm:py-20">
+        <div className="mx-auto max-w-[1143px] px-5 sm:px-8">
           <div className="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-end">
             <div>
               <p className="text-sm font-extrabold uppercase tracking-[0.18em] text-[#9a7b55]">
@@ -450,8 +452,8 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <section className="bg-[#f7f3ec] py-20">
-        <div className="mx-auto max-w-[1143px] px-8">
+      <section className="bg-[#f7f3ec] py-14 sm:py-20">
+        <div className="mx-auto max-w-[1143px] px-5 sm:px-8">
           <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
             <div>
               <p className="text-sm font-extrabold uppercase tracking-[0.18em] text-[#9a7b55]">
@@ -505,8 +507,65 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <section className="bg-white py-20">
-        <div className="mx-auto max-w-[1143px] px-8">
+      <section className="bg-white py-14 sm:py-20">
+        <div className="mx-auto max-w-[1143px] px-5 sm:px-8">
+          <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+            <div>
+              <div className="inline-flex items-center gap-2 rounded-full bg-[#e7d8c9] px-3 py-1 text-xs font-extrabold uppercase tracking-[1.2px] text-[#7c6a55]">
+                <Newspaper size={13} aria-hidden="true" />
+                Berita Padukuhan
+              </div>
+              <h2 className="mt-4 text-3xl font-extrabold leading-tight text-[#1f2937] sm:text-4xl">
+                Cerita dari Tamansari
+              </h2>
+              <p className="mt-4 max-w-2xl text-base font-semibold leading-7 text-[#6b7280]">
+                Catatan kegiatan, budaya, dan kehidupan warga Padukuhan Tamansari.
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-12 grid gap-6 lg:grid-cols-2">
+            {staticArticles.map((article) => (
+              <article
+                key={article.slug}
+                className="overflow-hidden rounded-3xl border border-[#e5e0d8] bg-[#f8f5f0] shadow-[0_14px_34px_rgba(31,41,55,0.08)]"
+              >
+                <div className="relative aspect-[16/9] bg-[#e7d8c9]">
+                  <Image
+                    src={article.image}
+                    alt={`Ilustrasi ${article.title}`}
+                    fill
+                    sizes="(min-width: 1024px) 540px, 100vw"
+                    className="object-cover object-center"
+                  />
+                  <span className="absolute left-5 top-5 rounded-full bg-white/90 px-3 py-1 text-xs font-extrabold text-[#7c6a55] backdrop-blur">
+                    {article.category}
+                  </span>
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-extrabold leading-tight text-[#1f2937]">
+                    {article.title}
+                  </h3>
+                  <p className="mt-3 line-clamp-3 text-sm font-semibold leading-6 text-[#6b7280]">
+                    {article.excerpt}
+                  </p>
+                  <ButtonLink
+                    href={`/berita/${article.slug}`}
+                    size="sm"
+                    className="mt-6 h-10 rounded-xl px-4 text-xs"
+                  >
+                    Baca Artikel
+                    <ArrowRight size={15} aria-hidden="true" />
+                  </ButtonLink>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white py-14 sm:py-20">
+        <div className="mx-auto max-w-[1143px] px-5 sm:px-8">
           <SectionHeader
             eyebrow="Kontak"
             title="Hubungi Kami"
@@ -546,7 +605,7 @@ export default async function HomePage() {
               <iframe
                 src={kontak.maps || profil.maps}
                 title={`Peta lokasi ${kontak.namaPadukuhan}`}
-                className="h-[505px] w-full border-0"
+                className="h-[360px] w-full border-0 sm:h-[505px]"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
               />

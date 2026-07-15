@@ -7,7 +7,7 @@ export function Footer({ kontak }: { kontak: KontakPadukuhan }) {
 
   return (
     <footer className="bg-[#2b221d] text-white shadow-[0_-8px_30px_rgba(31,41,55,0.08)]">
-      <div className="mx-auto grid max-w-[1216px] gap-12 px-8 py-16 lg:grid-cols-[1.05fr_0.85fr_1fr]">
+      <div className="mx-auto grid max-w-[1216px] gap-10 px-5 py-12 sm:px-8 sm:py-16 lg:grid-cols-[1.05fr_0.85fr_1fr]">
         <div>
           <div className="flex items-center gap-3">
             <span className="flex size-10 items-center justify-center rounded-full bg-[#8b7355] text-white shadow-sm">
@@ -29,7 +29,7 @@ export function Footer({ kontak }: { kontak: KontakPadukuhan }) {
           <h3 className="text-base font-bold text-[#d6c3a5]">
             Menu Cepat
           </h3>
-          <div className="mt-6 grid grid-cols-2 gap-x-12 gap-y-4 text-sm font-semibold text-[#9ca3af]">
+          <div className="mt-6 grid grid-cols-2 gap-x-8 gap-y-4 text-sm font-semibold text-[#9ca3af] sm:gap-x-12">
             {menuItems.map((item) => (
               <Link
                 key={item}
@@ -61,7 +61,7 @@ export function Footer({ kontak }: { kontak: KontakPadukuhan }) {
           </div>
         </div>
       </div>
-      <div className="mx-auto max-w-[1216px] px-8 pb-12">
+      <div className="mx-auto max-w-[1216px] px-5 pb-10 sm:px-8 sm:pb-12">
         <div className="flex flex-col gap-4 border-t border-white/10 pt-8 text-sm font-semibold text-[#6b7280] sm:flex-row sm:items-center sm:justify-between">
           <span>© {new Date().getFullYear()} {kontak.namaPadukuhan}. Dibuat oleh Kelompok 54 KKN 89 UAJY .</span>
           <Link href="/admin/dashboard" className="transition hover:text-white">

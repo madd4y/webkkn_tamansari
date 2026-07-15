@@ -50,6 +50,12 @@ export const pendudukSchema = z.object({
   kk: nonNegativeNumber("Jumlah KK"),
   rt: nonNegativeNumber("Jumlah RT"),
   rw: nonNegativeNumber("Jumlah RW"),
+  lakiLakiUsia0_19: nonNegativeNumber("Laki-laki usia 0-19"),
+  lakiLakiUsia20_59: nonNegativeNumber("Laki-laki usia 20-59"),
+  lakiLakiUsia60Plus: nonNegativeNumber("Laki-laki usia 60+"),
+  perempuanUsia0_19: nonNegativeNumber("Perempuan usia 0-19"),
+  perempuanUsia20_59: nonNegativeNumber("Perempuan usia 20-59"),
+  perempuanUsia60Plus: nonNegativeNumber("Perempuan usia 60+"),
 });
 
 export const videoSchema = z.object({

@@ -57,7 +57,7 @@ export default async function KontakPage() {
               <iframe
                 src={kontak.maps}
                 title="Peta lokasi Padukuhan Tamansari"
-                className="h-[520px] w-full"
+                className="h-[360px] w-full sm:h-[520px]"
                 loading="lazy"
               />
             </div>

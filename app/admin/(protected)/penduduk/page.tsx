@@ -4,7 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { Save } from "lucide-react";
 import { useEffect } from "react";
-import { useForm } from "react-hook-form";
+import { useForm, useWatch } from "react-hook-form";
 import toast from "react-hot-toast";
 import { Button } from "@/components/ui/button";
 import { AdminField } from "@/components/ui/admin-field";
@@ -21,6 +21,12 @@ const emptyValues: PendudukFormValues = {
   kk: 0,
   rt: 0,
   rw: 0,
+  lakiLakiUsia0_19: 82,
+  lakiLakiUsia20_59: 140,
+  lakiLakiUsia60Plus: 58,
+  perempuanUsia0_19: 57,
+  perempuanUsia20_59: 124,
+  perempuanUsia60Plus: 79,
 };
 
 export default function AdminPendudukPage() {
@@ -28,6 +34,7 @@ export default function AdminPendudukPage() {
   const { data } = usePenduduk();
   const {
     register,
+    control,
     handleSubmit,
     reset,
     formState: { errors },
@@ -38,9 +45,19 @@ export default function AdminPendudukPage() {
 
   useEffect(() => {
     if (data) {
-      reset(data);
+      reset({ ...emptyValues, ...data });
     }
   }, [data, reset]);
+
+  const ageValues = useWatch({ control });
+  const lakiLakiUsiaTotal =
+    (ageValues.lakiLakiUsia0_19 || 0) +
+    (ageValues.lakiLakiUsia20_59 || 0) +
+    (ageValues.lakiLakiUsia60Plus || 0);
+  const perempuanUsiaTotal =
+    (ageValues.perempuanUsia0_19 || 0) +
+    (ageValues.perempuanUsia20_59 || 0) +
+    (ageValues.perempuanUsia60Plus || 0);
 
   const mutation = useMutation({
     mutationFn: async (values: PendudukFormValues) =>
@@ -104,6 +121,80 @@ export default function AdminPendudukPage() {
             error={errors.rw?.message}
             {...register("rw", { valueAsNumber: true })}
           />
+        </div>
+      </section>
+
+      <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm shadow-slate-950/5">
+        <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <h2 className="text-lg font-bold text-slate-950">Kelompok Usia</h2>
+            <p className="mt-1 text-sm leading-6 text-slate-600">
+              Data ini ditampilkan pada halaman publik Data Penduduk.
+            </p>
+          </div>
+          <p className="text-sm font-semibold text-slate-500">
+            Total usia: {lakiLakiUsiaTotal + perempuanUsiaTotal} jiwa
+          </p>
+        </div>
+
+        <div className="mt-6 grid gap-6 lg:grid-cols-2">
+          <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
+            <div className="flex items-center justify-between gap-3">
+              <h3 className="font-bold text-slate-950">Laki-laki</h3>
+              <span className="text-sm font-bold text-sky-700">
+                Total: {lakiLakiUsiaTotal}
+              </span>
+            </div>
+            <div className="mt-5 grid gap-5">
+              <AdminField
+                label="Usia 0-19"
+                type="number"
+                error={errors.lakiLakiUsia0_19?.message}
+                {...register("lakiLakiUsia0_19", { valueAsNumber: true })}
+              />
+              <AdminField
+                label="Usia 20-59"
+                type="number"
+                error={errors.lakiLakiUsia20_59?.message}
+                {...register("lakiLakiUsia20_59", { valueAsNumber: true })}
+              />
+              <AdminField
+                label="Usia 60+"
+                type="number"
+                error={errors.lakiLakiUsia60Plus?.message}
+                {...register("lakiLakiUsia60Plus", { valueAsNumber: true })}
+              />
+            </div>
+          </div>
+
+          <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
+            <div className="flex items-center justify-between gap-3">
+              <h3 className="font-bold text-slate-950">Perempuan</h3>
+              <span className="text-sm font-bold text-amber-700">
+                Total: {perempuanUsiaTotal}
+              </span>
+            </div>
+            <div className="mt-5 grid gap-5">
+              <AdminField
+                label="Usia 0-19"
+                type="number"
+                error={errors.perempuanUsia0_19?.message}
+                {...register("perempuanUsia0_19", { valueAsNumber: true })}
+              />
+              <AdminField
+                label="Usia 20-59"
+                type="number"
+                error={errors.perempuanUsia20_59?.message}
+                {...register("perempuanUsia20_59", { valueAsNumber: true })}
+              />
+              <AdminField
+                label="Usia 60+"
+                type="number"
+                error={errors.perempuanUsia60Plus?.message}
+                {...register("perempuanUsia60Plus", { valueAsNumber: true })}
+              />
+            </div>
+          </div>
         </div>
       </section>
       <div className="flex justify-end">

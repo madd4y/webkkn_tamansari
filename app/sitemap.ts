@@ -1,9 +1,10 @@
 import type { MetadataRoute } from "next";
+import { staticArticles } from "@/lib/static-articles";
 
 const baseUrl = "https://gedangsari.vercel.app";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  return [
+  const staticPaths = [
     "",
     "/profil",
     "/penduduk",
@@ -11,7 +12,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/dokumentasi",
     "/video",
     "/kontak",
-  ].map((path) => ({
+  ];
+  const articlePaths = staticArticles.map((article) => `/berita/${article.slug}`);
+
+  return [...staticPaths, ...articlePaths].map((path) => ({
     url: `${baseUrl}${path}`,
     lastModified: new Date(),
   }));

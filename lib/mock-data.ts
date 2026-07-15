@@ -49,6 +49,12 @@ export const pendudukMock: Penduduk = {
   kk: 386,
   rt: 6,
   rw: 2,
+  lakiLakiUsia0_19: 82,
+  lakiLakiUsia20_59: 140,
+  lakiLakiUsia60Plus: 58,
+  perempuanUsia0_19: 57,
+  perempuanUsia20_59: 124,
+  perempuanUsia60Plus: 79,
 };
 
 export const videoMock: VideoProfil = {

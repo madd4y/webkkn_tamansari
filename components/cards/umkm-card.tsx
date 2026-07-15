@@ -17,22 +17,23 @@ export function UmkmCard({ item }: { item: UMKM }) {
         />
       </div>
       <div className="p-5 sm:p-6">
-        <div className="flex items-center justify-between gap-3">
+        <div className="flex flex-wrap items-center justify-between gap-3">
           <span className="rounded-full bg-[#e7d8c9] px-3 py-1 text-xs font-bold text-[#7c6a55]">
             {item.kategori}
           </span>
-          <span className="text-xs font-medium text-slate-500">Pemilik: {item.pemilik}</span>
+          <span className="min-w-0 text-xs font-medium text-slate-500">Pemilik: {item.pemilik}</span>
         </div>
         <h3 className="mt-4 text-xl font-bold text-slate-950">{item.nama}</h3>
         <p className="mt-2 line-clamp-3 text-sm leading-6 text-slate-600">
           {item.deskripsi}
         </p>
-        <div className="mt-5 flex flex-wrap gap-2">
+        <div className="mt-5 grid gap-2 min-[420px]:grid-cols-2">
           <ButtonLink
             href={getWhatsAppUrl(item.whatsapp, `Halo, saya ingin bertanya tentang ${item.nama}.`)}
             target="_blank"
             rel="noopener noreferrer"
             size="sm"
+            className="w-full"
           >
             <MessageCircle size={16} aria-hidden="true" />
             WhatsApp
@@ -41,6 +42,7 @@ export function UmkmCard({ item }: { item: UMKM }) {
             href={`/umkm/${encodeURIComponent(item.id)}`}
             variant="secondary"
             size="sm"
+            className="w-full"
           >
             <Eye size={16} aria-hidden="true" />
             Detail
