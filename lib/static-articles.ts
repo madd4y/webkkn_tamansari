@@ -60,6 +60,17 @@ export const tirakatanSuronanArticle: StaticArticle = {
     `"Kalau dulu kita saweran, uangnya dikumpulkan buat beli snack dan nanggap ledek. Sekarang sejak saya jadi dukuh, sudah tidak ada iuran lagi. Saya mencukupi semampunya supaya warga tidak terbebani," jelasnya.`,
     `Meski bentuk penyelenggaraan mengalami perubahan, makna utama tradisi tetap dipertahankan. Tirakatan bukan tentang kemeriahan acara, melainkan tentang kebersamaan dan rasa syukur.`,
     `Berbeda dengan berbagai tradisi adat yang memiliki rangkaian ritual khusus, Tirakatan Suronan di Tamansari berlangsung secara sederhana. Tidak ada susunan acara yang baku maupun doa bersama yang wajib dilakukan. Warga bebas berkumpul, berbincang, atau berdoa sesuai keyakinan masing-masing.`,
+    `Menurut Pak Sumedi, tirakat lebih dimaknai sebagai upaya mendekatkan diri kepada Tuhan melalui niat dan batin.`,
+    `"Tidak ada ritual khusus. Kita minta sama Yang Maha Kuasa lewat batin kita masing-masing."`,
+    `Tradisi "melek", atau tetap terjaga sepanjang malam, juga menjadi bagian dari tirakatan. Dahulu suasana Malam Suro jauh lebih ramai. Banyak warga berjalan-jalan mengunjungi tempat-tempat yang ramai, kemudian berkumpul hingga menjelang pagi. Kini tradisi tersebut masih dijalankan, meski tidak seramai dulu.`,
+    `Menariknya, Tirakatan Suronan di Tamansari terbuka bagi siapa saja. Tidak hanya diikuti oleh tokoh masyarakat atau orang tua, tetapi juga anak muda, ibu-ibu, hingga tamu dari luar daerah yang ingin ikut merasakan suasana kebersamaan.`,
+    `"Bapak, ibu, tua, muda semuanya boleh ikut. Yang penting kita berkumpul jadi satu," kata Pak Sumedi.`,
+    `Pelaksanaan tirakatan juga tidak memiliki aturan yang rumit. Warga hanya diminta menjaga ketertiban selama kegiatan berlangsung.`,
+    `"Tidak boleh minum-minuman dan tidak boleh membuat keributan. Kita ingin suasananya santai," tambahnya.`,
+    `Meski hingga kini antusiasme masyarakat masih cukup tinggi, Pak Sumedi mengakui bahwa keberlangsungan tradisi sangat bergantung pada kesadaran generasi penerus. Menurutnya, perubahan zaman dapat membuat budaya perlahan memudar apabila tidak diwariskan kepada anak-anak muda.`,
+    `"Kita tidak tahu nanti bagaimana generasi berikutnya. Mudah-mudahan masih ada yang meneruskan."`,
+    `Harapan terbesar yang dipanjatkannya sederhana, sebagaimana makna Tirakatan Suronan itu sendiri. Ia berharap seluruh masyarakat diberikan kesehatan, umur panjang, kelancaran rezeki, dan keberkahan dalam kehidupan.`,
+    `Di tengah arus modernisasi yang terus berkembang, Tirakatan Suronan di Padukuhan Tamansari menjadi pengingat bahwa sebuah tradisi tidak selalu harus megah untuk memiliki makna. Duduk bersama, berbagi cerita, menjaga kebersamaan, dan memanjatkan doa di malam pergantian tahun Jawa telah menjadi cara masyarakat merawat hubungan dengan sesama sekaligus dengan Sang Pencipta. Selama semangat gotong royong dan rasa syukur itu tetap hidup, Tirakatan Suronan akan terus menjadi bagian dari identitas budaya Tamansari yang diwariskan dari generasi ke generasi.`,
   ],
 };
 
