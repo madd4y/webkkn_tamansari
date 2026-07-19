@@ -478,7 +478,7 @@ export default async function HomePage() {
             {featuredDokumentasi.map((item) => (
               <article
                 key={item.id}
-                className="overflow-hidden rounded-2xl border border-[#e5e0d8] bg-white shadow-[0_8px_22px_rgba(31,41,55,0.10)]"
+                className="flex h-full flex-col overflow-hidden rounded-2xl border border-[#e5e0d8] bg-white shadow-[0_8px_22px_rgba(31,41,55,0.10)]"
               >
                 <div className="relative aspect-[341/213] bg-[#f3eee8]">
                   <Image
@@ -489,7 +489,7 @@ export default async function HomePage() {
                     className="object-cover object-center"
                   />
                 </div>
-                <div className="p-5 sm:p-6">
+                <div className="flex flex-1 flex-col p-5 sm:p-6">
                   <div className="flex items-center gap-2 text-sm font-semibold text-[#6b7280]">
                     <CalendarDays size={14} aria-hidden="true" />
                     {formatDate(item.tanggal)}
@@ -500,6 +500,15 @@ export default async function HomePage() {
                   <p className="mt-3 line-clamp-2 text-sm font-semibold leading-6 text-[#6b7280]">
                     {item.deskripsi}
                   </p>
+                  <ButtonLink
+                    href={`/dokumentasi/${encodeURIComponent(item.id)}`}
+                    variant="secondary"
+                    size="sm"
+                    className="mt-5 w-fit"
+                  >
+                    <Eye size={15} aria-hidden="true" />
+                    Detail
+                  </ButtonLink>
                 </div>
               </article>
             ))}
