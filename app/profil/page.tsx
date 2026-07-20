@@ -146,10 +146,10 @@ export default async function ProfilPage() {
     <PublicLayout>
       <section className="relative flex min-h-[300px] items-center overflow-hidden border-b border-[#e5ded3] bg-[#f7f3ec] pb-14 pt-28 shadow-[0_14px_35px_rgba(139,115,85,0.08)] sm:min-h-[360px] sm:pb-20 sm:pt-32">
         <div
-          className="absolute inset-y-0 right-0 hidden w-[70%] bg-cover bg-center lg:block"
+          className="absolute inset-0 bg-cover bg-center opacity-45 sm:opacity-55 lg:inset-y-0 lg:left-auto lg:right-0 lg:w-[70%] lg:opacity-100"
           style={{
             backgroundImage:
-              "url(https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1400&q=85)",
+              "url(/images/tamansari/pemandangan-lembah.webp)",
           }}
           aria-hidden="true"
         />

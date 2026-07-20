@@ -3,12 +3,10 @@ import { Container } from "@/components/ui/container";
 const headerImages: Record<string, string> = {
   "Data Penduduk":
     "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1400&q=85",
-  Dokumentasi:
-    "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1400&q=85",
+  Dokumentasi: "/images/tamansari/panorama-tamansari.webp",
   UMKM:
     "https://images.unsplash.com/photo-1556742393-d75f468bfcb0?auto=format&fit=crop&w=1400&q=85",
-  Kontak:
-    "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1400&q=85",
+  Kontak: "/images/tamansari/senja-gunung.webp",
 };
 
 const fallbackImage =
@@ -29,7 +27,7 @@ export function PageHeader({
     <section className="relative flex min-h-[300px] items-center overflow-hidden border-b border-[#e5ded3] bg-[#f7f3ec] pb-14 pt-28 shadow-[0_14px_35px_rgba(139,115,85,0.08)] sm:min-h-[340px] sm:pb-20 sm:pt-32 lg:min-h-[360px]">
       {image ? (
         <div
-          className="absolute inset-y-0 right-0 hidden w-[70%] bg-cover bg-center opacity-100 lg:block"
+          className="absolute inset-0 bg-cover bg-center opacity-45 sm:opacity-55 lg:inset-y-0 lg:left-auto lg:right-0 lg:w-[70%] lg:opacity-100"
           style={{ backgroundImage: `url(${image})` }}
           aria-hidden="true"
         />

@@ -27,10 +27,9 @@ import { getKontak } from "@/services/kontak.service";
 import { getSiteData } from "@/services/site.service";
 
 const landscapeImage =
-  "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1600&q=85";
+  "/images/tamansari/pemandangan-lembah.webp";
 
-const heroImage =
-  "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=2200&q=90";
+const heroImage = "/images/tamansari/senja-tamansari.webp";
 
 function padukuhanShortName(fullName: string) {
   return fullName.replace(/^Padukuhan\s+/i, "").trim() || fullName;

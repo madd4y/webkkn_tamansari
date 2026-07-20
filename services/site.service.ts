@@ -7,7 +7,10 @@ import {
   videoMock,
 } from "@/lib/mock-data";
 import type { Dokumentasi, Penduduk, ProfilPadukuhan, UMKM, VideoProfil } from "@/types";
-import { getDokumentasi } from "./dokumentasi.service";
+import {
+  getDokumentasi,
+  sortDokumentasiByLatest,
+} from "./dokumentasi.service";
 import { calculatePendudukTotals, getPenduduk } from "./penduduk.service";
 import { getProfil } from "./profil.service";
 import { getUMKM } from "./umkm.service";
@@ -42,9 +45,9 @@ function normalizeSiteData(data: Partial<SiteData> | null | undefined): SiteData
     },
     penduduk,
     umkm: Array.isArray(data?.umkm) ? data.umkm : umkmMock,
-    dokumentasi: Array.isArray(data?.dokumentasi)
-      ? data.dokumentasi
-      : dokumentasiMock,
+    dokumentasi: sortDokumentasiByLatest(
+      Array.isArray(data?.dokumentasi) ? data.dokumentasi : dokumentasiMock,
+    ),
     video: {
       ...videoMock,
       ...(data?.video ?? {}),
