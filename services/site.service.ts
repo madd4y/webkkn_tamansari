@@ -8,7 +8,7 @@ import {
 } from "@/lib/mock-data";
 import type { Dokumentasi, Penduduk, ProfilPadukuhan, UMKM, VideoProfil } from "@/types";
 import { getDokumentasi } from "./dokumentasi.service";
-import { getPenduduk } from "./penduduk.service";
+import { calculatePendudukTotals, getPenduduk } from "./penduduk.service";
 import { getProfil } from "./profil.service";
 import { getUMKM } from "./umkm.service";
 import { getVideoProfil } from "./video.service";
@@ -30,15 +30,17 @@ const siteFallback: SiteData = {
 };
 
 function normalizeSiteData(data: Partial<SiteData> | null | undefined): SiteData {
+  const penduduk = calculatePendudukTotals({
+    ...pendudukMock,
+    ...(data?.penduduk ?? {}),
+  });
+
   return {
     profil: {
       ...profilMock,
       ...(data?.profil ?? {}),
     },
-    penduduk: {
-      ...pendudukMock,
-      ...(data?.penduduk ?? {}),
-    },
+    penduduk,
     umkm: Array.isArray(data?.umkm) ? data.umkm : umkmMock,
     dokumentasi: Array.isArray(data?.dokumentasi)
       ? data.dokumentasi

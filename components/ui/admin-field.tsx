@@ -3,6 +3,7 @@ import { forwardRef, type ChangeEventHandler, type FocusEventHandler, type Ref }
 type AdminFieldProps = {
   label: string;
   defaultValue?: string | number;
+  readOnly?: boolean;
   multiline?: boolean;
   type?: string;
   name?: string;
@@ -18,6 +19,7 @@ export const AdminField = forwardRef<
   {
   label,
   defaultValue,
+  readOnly = false,
   multiline = false,
   type = "text",
   name,
@@ -38,6 +40,7 @@ export const AdminField = forwardRef<
           ref={ref as Ref<HTMLTextAreaElement>}
           name={name}
           defaultValue={defaultValue}
+          readOnly={readOnly}
           rows={5}
           className={className}
           aria-invalid={error ? "true" : "false"}
@@ -49,6 +52,7 @@ export const AdminField = forwardRef<
           ref={ref as Ref<HTMLInputElement>}
           name={name}
           defaultValue={defaultValue}
+          readOnly={readOnly}
           type={type}
           className={className}
           aria-invalid={error ? "true" : "false"}

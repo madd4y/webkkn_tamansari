@@ -474,11 +474,14 @@ export default async function HomePage() {
             </ButtonLink>
           </div>
 
-          <div className="mt-14 grid gap-6 lg:grid-cols-3">
+          <div
+            className="no-scrollbar -mx-5 mt-10 flex snap-x snap-mandatory gap-4 overflow-x-auto overscroll-x-contain px-5 pb-4 scroll-smooth sm:mx-0 sm:mt-14 sm:grid sm:snap-none sm:grid-cols-2 sm:gap-6 sm:overflow-visible sm:px-0 sm:pb-0 lg:grid-cols-3"
+            aria-label="Dokumentasi terbaru"
+          >
             {featuredDokumentasi.map((item) => (
               <article
                 key={item.id}
-                className="flex h-full flex-col overflow-hidden rounded-2xl border border-[#e5e0d8] bg-white shadow-[0_8px_22px_rgba(31,41,55,0.10)]"
+                className="flex h-full w-[82vw] max-w-[320px] shrink-0 snap-start flex-col overflow-hidden rounded-2xl border border-[#e5e0d8] bg-white shadow-[0_8px_22px_rgba(31,41,55,0.10)] sm:w-auto sm:max-w-none"
               >
                 <div className="relative aspect-[341/213] bg-[#f3eee8]">
                   <Image

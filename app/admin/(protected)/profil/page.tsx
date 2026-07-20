@@ -16,7 +16,7 @@ import type { OrganizationMember, ProfilPadukuhan } from "@/types";
 
 const strukturDefaults: OrganizationMember[] = [
   { jabatan: "Dukuh", nama: "Bapak Supriyanto" },
-  { jabatan: "Ketua RW 01", nama: "Bapak Wahyudi" },
+  { jabatan: "Ketua RW", nama: "Bapak Wahyudi" },
   { jabatan: "Ketua RT 01", nama: "Pak Agus" },
   { jabatan: "Ketua RT 02", nama: "Pak Bambang" },
   { jabatan: "Ketua RT 03", nama: "Pak Cipto" },

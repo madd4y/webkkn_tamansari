@@ -37,6 +37,7 @@ export default function AdminPendudukPage() {
     control,
     handleSubmit,
     reset,
+    setValue,
     formState: { errors },
   } = useForm<PendudukFormValues>({
     resolver: zodResolver(pendudukSchema),
@@ -58,6 +59,18 @@ export default function AdminPendudukPage() {
     (ageValues.perempuanUsia0_19 || 0) +
     (ageValues.perempuanUsia20_59 || 0) +
     (ageValues.perempuanUsia60Plus || 0);
+  const jumlahPendudukTotal = lakiLakiUsiaTotal + perempuanUsiaTotal;
+
+  useEffect(() => {
+    setValue("lakiLaki", lakiLakiUsiaTotal);
+    setValue("perempuan", perempuanUsiaTotal);
+    setValue("jumlahPenduduk", jumlahPendudukTotal);
+  }, [
+    jumlahPendudukTotal,
+    lakiLakiUsiaTotal,
+    perempuanUsiaTotal,
+    setValue,
+  ]);
 
   const mutation = useMutation({
     mutationFn: async (values: PendudukFormValues) =>
@@ -86,20 +99,23 @@ export default function AdminPendudukPage() {
             {...register("tahun", { valueAsNumber: true })}
           />
           <AdminField
-            label="Jumlah Penduduk"
+            label="Jumlah Penduduk (otomatis)"
             type="number"
+            readOnly
             error={errors.jumlahPenduduk?.message}
             {...register("jumlahPenduduk", { valueAsNumber: true })}
           />
           <AdminField
-            label="Laki-laki"
+            label="Laki-laki (otomatis)"
             type="number"
+            readOnly
             error={errors.lakiLaki?.message}
             {...register("lakiLaki", { valueAsNumber: true })}
           />
           <AdminField
-            label="Perempuan"
+            label="Perempuan (otomatis)"
             type="number"
+            readOnly
             error={errors.perempuan?.message}
             {...register("perempuan", { valueAsNumber: true })}
           />
@@ -133,7 +149,7 @@ export default function AdminPendudukPage() {
             </p>
           </div>
           <p className="text-sm font-semibold text-slate-500">
-            Total usia: {lakiLakiUsiaTotal + perempuanUsiaTotal} jiwa
+            Total usia: {jumlahPendudukTotal} jiwa
           </p>
         </div>
 

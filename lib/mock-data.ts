@@ -43,9 +43,9 @@ export const profilMock: ProfilPadukuhan = {
 
 export const pendudukMock: Penduduk = {
   tahun: 2026,
-  jumlahPenduduk: 1248,
-  lakiLaki: 622,
-  perempuan: 626,
+  jumlahPenduduk: 540,
+  lakiLaki: 280,
+  perempuan: 260,
   kk: 386,
   rt: 6,
   rw: 2,

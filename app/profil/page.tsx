@@ -21,7 +21,7 @@ export const metadata = {
 
 const defaultMembers: OrganizationMember[] = [
   { jabatan: "Dukuh", nama: "Bapak Supriyanto" },
-  { jabatan: "Ketua RW 01", nama: "Bapak Wahyudi" },
+  { jabatan: "Ketua RW", nama: "Bapak Wahyudi" },
   { jabatan: "Ketua RT 01", nama: "Pak Agus" },
   { jabatan: "Ketua RT 02", nama: "Pak Bambang" },
   { jabatan: "Ketua RT 03", nama: "Pak Cipto" },
@@ -48,6 +48,14 @@ function normalizeMembers(members: OrganizationMember[]) {
       nama: member.nama?.trim() || fallback.nama,
     };
   });
+}
+
+function normalizeOrganizationTitle(title: string) {
+  const normalizedTitle = title.trim();
+
+  return /^Ketua RW(?:\s+0?1)?$/i.test(normalizedTitle)
+    ? "Ketua RW"
+    : normalizedTitle;
 }
 
 function SectionCard({
@@ -116,7 +124,7 @@ function OrgNode({
       }`}
     >
       <p className="text-sm font-extrabold leading-5">
-        {member.jabatan}
+        {normalizeOrganizationTitle(member.jabatan)}
       </p>
       <p className={`text-sm leading-5 ${primary ? "text-white/80" : "text-[#6b7280]"}`}>
         {member.nama}

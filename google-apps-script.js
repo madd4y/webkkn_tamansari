@@ -231,7 +231,10 @@ function upsertSingleton(resource, data) {
   const sheet = getSheet(resource);
   const rows = sheet.getDataRange().getValues();
   const rowIndex = rows.slice(1).findIndex(rowHasValue);
-  const values = config.headers.map((header) => serializeValue(data[header], config, header));
+  const payload = resource === "penduduk" ? calculatePendudukTotals(data) : data;
+  const values = config.headers.map((header) =>
+    serializeValue(payload[header], config, header),
+  );
 
   if (rowIndex === -1) {
     sheet.appendRow(values);
@@ -239,7 +242,24 @@ function upsertSingleton(resource, data) {
     sheet.getRange(rowIndex + 2, 1, 1, config.headers.length).setValues([values]);
   }
 
-  return data;
+  return payload;
+}
+
+function calculatePendudukTotals(data) {
+  const lakiLaki =
+    Number(data.lakiLakiUsia0_19 || 0) +
+    Number(data.lakiLakiUsia20_59 || 0) +
+    Number(data.lakiLakiUsia60Plus || 0);
+  const perempuan =
+    Number(data.perempuanUsia0_19 || 0) +
+    Number(data.perempuanUsia20_59 || 0) +
+    Number(data.perempuanUsia60Plus || 0);
+
+  return Object.assign({}, data, {
+    jumlahPenduduk: lakiLaki + perempuan,
+    lakiLaki: lakiLaki,
+    perempuan: perempuan,
+  });
 }
 
 function getSheet(resource) {
