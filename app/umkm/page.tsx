@@ -15,7 +15,7 @@ export default async function UMKMPage() {
     <PublicLayout>
       <PageHeader
         eyebrow="UMKM"
-        title="Potensi usaha masyarakat"
+        title="Potensi Usaha Masyarakat"
         description="Temukan produk dan layanan lokal Padukuhan Tamansari berdasarkan nama, kategori, atau pemilik."
       />
       <section className="bg-white py-16">

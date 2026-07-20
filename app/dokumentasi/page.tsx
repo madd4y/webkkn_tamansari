@@ -15,7 +15,7 @@ export default async function DokumentasiPage() {
     <PublicLayout>
       <PageHeader
         eyebrow="Dokumentasi"
-        title="Arsip kegiatan padukuhan"
+        title="Arsip Kegiatan Padukuhan"
         description="Dokumentasi kegiatan masyarakat, program KKN, dan agenda padukuhan yang tersimpan secara digital."
       />
       <section className="bg-white py-16">

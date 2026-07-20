@@ -43,7 +43,7 @@ export default async function PendudukPage() {
     <PublicLayout>
       <PageHeader
         eyebrow="Data Penduduk"
-        title={`Statistik penduduk tahun ${data.tahun}`}
+        title={`Statistik Penduduk Tahun ${data.tahun}`}
         description="Informasi ditampilkan secara agregat tanpa memuat data pribadi warga."
       />
       <section className="bg-white py-16">

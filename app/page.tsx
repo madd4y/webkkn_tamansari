@@ -396,11 +396,14 @@ export default async function HomePage() {
             </ButtonLink>
           </div>
 
-          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div
+            className="no-scrollbar -mx-5 mt-10 flex snap-x snap-mandatory gap-4 overflow-x-auto overscroll-x-contain px-5 pb-4 scroll-smooth sm:mx-0 sm:mt-14 sm:grid sm:snap-none sm:grid-cols-2 sm:gap-6 sm:overflow-visible sm:px-0 sm:pb-0 lg:grid-cols-3"
+            aria-label="UMKM unggulan"
+          >
             {featuredUmkm.map((item) => (
               <article
                 key={item.id}
-                className="w-full overflow-hidden rounded-2xl border border-[#e5e0d8] bg-white shadow-[0_8px_22px_rgba(31,41,55,0.10)]"
+                className="w-[82vw] max-w-[320px] shrink-0 snap-start overflow-hidden rounded-2xl border border-[#e5e0d8] bg-white shadow-[0_8px_22px_rgba(31,41,55,0.10)] sm:w-full sm:max-w-none"
               >
                 <div className="relative aspect-[341/213] bg-[#f3eee8]">
                   <Image
@@ -425,7 +428,7 @@ export default async function HomePage() {
                   <p className="mt-3 line-clamp-2 text-sm font-semibold leading-6 text-[#6b7280]">
                     {item.deskripsi}
                   </p>
-                  <div className="mt-5 grid gap-3 sm:grid-cols-2">
+                  <div className="mt-5 grid grid-cols-2 gap-3">
                     <a
                       href={getWhatsAppUrl(item.whatsapp, `Halo, saya ingin bertanya tentang ${item.nama}.`)}
                       target="_blank"
@@ -536,11 +539,14 @@ export default async function HomePage() {
             </div>
           </div>
 
-          <div className="mt-12 grid gap-6 lg:grid-cols-2">
+          <div
+            className="no-scrollbar -mx-5 mt-10 flex snap-x snap-mandatory gap-4 overflow-x-auto overscroll-x-contain px-5 pb-4 scroll-smooth sm:mx-0 sm:mt-12 sm:grid sm:snap-none sm:grid-cols-2 sm:gap-6 sm:overflow-visible sm:px-0 sm:pb-0"
+            aria-label="Berita Padukuhan"
+          >
             {staticArticles.map((article) => (
               <article
                 key={article.slug}
-                className="overflow-hidden rounded-3xl border border-[#e5e0d8] bg-[#f8f5f0] shadow-[0_14px_34px_rgba(31,41,55,0.08)]"
+                className="w-[82vw] max-w-[320px] shrink-0 snap-start overflow-hidden rounded-3xl border border-[#e5e0d8] bg-[#f8f5f0] shadow-[0_14px_34px_rgba(31,41,55,0.08)] sm:w-auto sm:max-w-none"
               >
                 <div className="relative aspect-[16/9] bg-[#e7d8c9]">
                   <Image
