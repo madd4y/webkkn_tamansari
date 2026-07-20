@@ -52,7 +52,7 @@ export default async function PendudukPage() {
             <StatCard label="Jumlah Penduduk" value={data.jumlahPenduduk} icon={Users} />
             <StatCard label="Laki-laki" value={data.lakiLaki} icon={VenusAndMars} tone="blue" />
             <StatCard label="Perempuan" value={data.perempuan} icon={VenusAndMars} tone="amber" />
-            <StatCard label="Jumlah KK" value={data.kk} icon={Home} />
+            <StatCard label="Jumlah Kartu Keluarga" value={data.kk} icon={Home} />
             <StatCard label="Jumlah RT" value={data.rt} icon={Users} tone="zinc" />
             <StatCard label="Jumlah RW" value={data.rw} icon={Users} tone="zinc" />
           </div>

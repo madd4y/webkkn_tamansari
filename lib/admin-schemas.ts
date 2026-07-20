@@ -47,7 +47,7 @@ export const pendudukSchema = z.object({
   jumlahPenduduk: nonNegativeNumber("Jumlah penduduk"),
   lakiLaki: nonNegativeNumber("Laki-laki"),
   perempuan: nonNegativeNumber("Perempuan"),
-  kk: nonNegativeNumber("Jumlah KK"),
+  kk: nonNegativeNumber("Jumlah Kartu Keluarga"),
   rt: nonNegativeNumber("Jumlah RT"),
   rw: nonNegativeNumber("Jumlah RW"),
   lakiLakiUsia0_19: nonNegativeNumber("Laki-laki usia 0-19"),

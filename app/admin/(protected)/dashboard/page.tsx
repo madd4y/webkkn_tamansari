@@ -24,7 +24,7 @@ export default async function AdminDashboardPage() {
         <StatCard label="Total UMKM" value={umkm.length} icon={Store} />
         <StatCard label="Dokumentasi" value={dokumentasi.length} icon={Camera} tone="blue" />
         <StatCard label="Penduduk" value={penduduk.jumlahPenduduk} icon={Users} tone="amber" />
-        <StatCard label="Jumlah KK" value={penduduk.kk} icon={Users} tone="zinc" />
+        <StatCard label="Jumlah Kartu Keluarga" value={penduduk.kk} icon={Users} tone="zinc" />
         <StatCard label="Video Aktif" value={video.judul ? "Ada" : "Belum"} icon={MonitorPlay} />
       </div>
       <section>
